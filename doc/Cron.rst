@@ -1,0 +1,41 @@
+AWS Flow Framework for Ruby: Cron Sample Application
+====================================================
+
+.. include:: includes/cron_desc.rst
+
+.. include:: includes/prerequisites.rst
+
+Download the Sample
+-------------------
+
+Download the sample by clicking the following link:
+
+- `Cron Sample`_
+
+Once you've downloaded the sample ``.zip``, unarchive it and make note of the location you've expanded the archive into.
+
+Run the Sample
+--------------
+
+**To run the Cron sample:**
+
+1. Open a terminal window and change to the ``lib`` directory in the location where you unarchived the sample code. For
+   example::
+
+    cd ~/Downloads/Cron/lib
+
+.. step 2 is common to all samples.
+.. include:: includes/credential_step.rst
+
+3. Execute the following commands on your command-line::
+
+    ruby cron_activity.rb &
+    ruby cron_workflow.rb &
+    ruby cron_workflow_starter.rb
+
+   Alternately, you can execute the `run_cron.sh` script to run all of these commands at once.
+
+.. In the future, we'll include the "About the Sample Code" section right here...
+
+.. include:: includes/more_info.rst
+.. _`Cron Sample`: https://awsdocs.s3.amazonaws.com/swf/1.0/samples/Cron.zip
