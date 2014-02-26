@@ -1,11 +1,11 @@
 AWS Flow Framework for Ruby: Cron Sample Application
 ====================================================
 
-.. include::../includes/Samples_Cron_desc.rst
+.. include:: ../includes/Samples_Cron_desc.rst
 
-.. include::../includes/prerequisites.rst
+.. include:: ../includes/prerequisites.rst
 
-.. include::../includes/download.rst
+.. include:: ../includes/download.rst
 
 Run the Sample
 --------------
@@ -18,7 +18,7 @@ Run the Sample
     cd ~/Downloads/Cron/lib
 
 .. step 2 is common to all samples.
-.. include::../includes/credential_step.rst
+.. include:: ../includes/credential_step.rst
 
 3. Execute the following commands on your command-line::
 
@@ -30,4 +30,4 @@ Run the Sample
 
 .. In the future, we'll include the "About the Sample Code" section right here...
 
-.. include::../includes/more_info.rst
+.. include:: ../includes/more_info.rst

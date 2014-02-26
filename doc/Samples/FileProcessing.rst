@@ -1,16 +1,16 @@
 AWS Flow Framework for Ruby: FileProcessing Sample Application
 ==============================================================
 
-.. include::../includes/Samples_FileProcessing_desc.rst
+.. include:: ../includes/Samples_FileProcessing_desc.rst
 
-.. include::../includes/prerequisites.rst
+.. include:: ../includes/prerequisites.rst
 
 To run the FileProcessing sample, you will also need the `rubyzip` Ruby library. To install it, run the following
 command:
 
    gem install rubyzip
 
-.. include::../includes/download.rst
+.. include:: ../includes/download.rst
 
 Run the Sample
 --------------
@@ -23,7 +23,7 @@ Run the Sample
     cd ~/Downloads/FileProcessing/lib
 
 .. step 2 is common to all samples.
-.. include::../includes/credential_step.rst
+.. include:: ../includes/credential_step.rst
 
 3. Execute the following commands on your command-line::
 
@@ -35,4 +35,4 @@ Run the Sample
 
 .. In the future, we'll include the "About the Sample Code" section right here...
 
-.. include::../includes/more_info.rst
+.. include:: ../includes/more_info.rst

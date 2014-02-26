@@ -1,11 +1,11 @@
 AWS Flow Framework for Ruby: SplitMerge Sample Application
 ==========================================================
 
-.. include::../includes/Samples_SplitMerge_desc.rst
+.. include:: ../includes/Samples_SplitMerge_desc.rst
 
-.. include::../includes/prerequisites.rst
+.. include:: ../includes/prerequisites.rst
 
-.. include::../includes/download.rst
+.. include:: ../includes/download.rst
 
 Configure the Sample
 --------------------
@@ -29,7 +29,7 @@ Run the Sample
     cd ~/Downloads/SplitMerge/lib
 
 .. step 2 is common to all samples.
-.. include::../includes/credential_step.rst
+.. include:: ../includes/credential_step.rst
 
 3. Execute the following commands on your command-line::
 
@@ -41,6 +41,6 @@ Run the Sample
 
 .. In the future, we'll include the "About the Sample Code" section right here...
 
-.. include::../includes/more_info.rst
+.. include:: ../includes/more_info.rst
 
 .. _`Amazon S3 Getting Started Guide`: http://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html
