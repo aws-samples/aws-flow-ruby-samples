@@ -4,49 +4,115 @@ import os
 import shutil
 import glob
 
+# Build script for the AWS Flow Framework for Ruby samples and recipes.
+#
+# Relies on the presence of both rst2html and pandoc.
+#
+# This script iterates over the ``Recipes`` and ``Samples`` directories. For
+# each, it performs the following actions:
+#
+#   1. Process each ``.rst`` file, which is named exactly as *dirname*.rst for
+#      each of the directories in the recipes or samples.
+#
+#   2. Descriptions for each recipe/sample are in the includes directory, and
+#   are named as *dirname*_*sample*_desc.rst. These descriptions are used in
+#   both the sample readme and in the master README that sits at the top of the
+#   heirarchy. The includes directory also contains any other bits of text
+#   shared by the various READMEs.
+#
+#   3. The files are first processed from RST to HTML, and then from HTML to
+#      Markdown. This overcomes the inability of GitHub to process RST
+#      directives (and the lack of these in Markdown in the first place), yet
+#      takes advantage of the very nice Markdown rendering on GitHub. You want
+#      to have your cake and to eat it too, you say? Yes!
+
+#
+#  FUNCTIONS
+#
+
+def build_readmes(path, build_dir):
+    """Build readmes within a given path.
+    Returns True if the build was successful; False otherwise.
+    """
+    if not os.path.isdir(path):
+        print "Invalid path: '%s'" % path
+        return False
+
+    # Gather all of the .rst files
+    files_to_process = glob.glob("%s/*.rst" % path)
+
+    # sub_build_dir is something like ``build/Recipes``.
+    sub_build_dir = "%s/%s" % (build_dir, path)
+    os.makedirs(sub_build_dir)
+    desc_file_name = "all_descs.rst"
+
+    # Open the sample descriptions file for writing (well, *appending*).
+    desc_file = open("%s/%s" % (build_dir, desc_file_name), 'a+')
+
+    # Write the title of this section (named after the path)
+    desc_file.write('%s\n%s\n\n' % (path, '~' * len(path)))
+
+    for filename in files_to_process:
+        # Make README.md for each sample
+        (basename, extension) = os.path.splitext(os.path.basename(filename))
+        print "   * %s" % basename
+        os.system('rst2html.py {filename} >{sub_build_dir}/{basename}.html'.format(
+            filename=filename, sub_build_dir=sub_build_dir, basename=basename))
+        os.system('pandoc -t markdown {sub_build_dir}/{basename}.html -o ../{path}/{basename}/README.md'.format(
+            sub_build_dir=sub_build_dir, path=path, basename=basename))
+
+        # Make sample descriptions
+
+        # write the title
+        desc_file.write('%s\n%s\n\n' % (basename, '.' * len(basename)))
+        # write the description
+        desc_file.write('.. include:: ../%s/%s_%s_desc.rst\n\n' % (includes_dir, path, basename))
+        # link to the sample directory
+        desc_file.write('Code + info: `{path}/{basename} <{path}/{basename}/>`_\n\n'.format(
+            path=path, basename=basename))
+
+    desc_file.close()
+
+    # so far, so good, eh?
+    return True
+
+#
+#  THE SCRIPT
+#
+
 build_dir = 'build'
 includes_dir = 'includes'
-descs_path = '%s/sample_descs.rst' % build_dir
+dirs_to_build = ['Samples', 'Recipes']
 
-print("Building sample READMEs...")
+print "Preparing build..."
 
-print("  Setting up the build.")
+# remove old docs
 if os.path.exists(build_dir):
-    shutil.rmtree(build_dir)
+    if os.path.isdir(build_dir):
+        shutil.rmtree(build_dir)
+    else:
+        print "Error: %s exists, but is a regular file. Please remove or rename it!"
+        sys.exit()
+
+# make new docs
 os.makedirs(build_dir)
 
-print "  Generating READMEs:"
-files_to_process = glob.glob('*.rst')
+print "Building READMEs..."
 
-# open the sample descriptions file.
-sdesc_file = open(descs_path, 'w+')
+result = False
+for subdir in dirs_to_build:
+    result = build_readmes(subdir, build_dir)
+    if result is False:
+        break
 
-for filename in files_to_process:
-    # Make README.md for each sample
-    (basename, extension) = os.path.splitext(os.path.basename(filename))
-    print "   * %s" % basename
-    os.system('rst2html.py %s >%s/%s.html' % (filename, build_dir, basename))
-    os.system('pandoc -t markdown_github %s/%s.html -o ../%s/README.md' %
-            (build_dir, basename, basename))
+if result is True:
+    # generate the master README
+    print "   * README.md"
+    os.system('rst2html.py includes/BASE_README.rst >{build_dir}/README.html'.format(build_dir=build_dir))
+    os.system('pandoc -t markdown {build_dir}/README.html -o ../README.md'.format(build_dir=build_dir))
 
-    # Make sample descriptions
+    # That's all, folks!
+    print "Finished!"
 
-    # write the title
-    sdesc_file.write('%s\n%s\n\n' % (basename, '~' * len(basename)))
-    # write the description
-    sdesc_file.write('.. include:: ../%s/%s_desc.rst\n\n' % (includes_dir,
-        basename.lower()))
-    # link to the sample directory
-    sdesc_file.write('Sample code + description: `%s <%s/>`_\n\n' % (basename,
-        basename))
-
-sdesc_file.close()
-
-# now, generate the master README
-print "   * master README"
-os.system('rst2html.py includes/BASE_README.rst >%s/README.html' % build_dir)
-os.system('pandoc -t markdown_github %s/README.html -o ../README.md' %
-        build_dir)
-
-print "Finished!"
+sys.exit()
 

@@ -1,18 +1,11 @@
 AWS Flow Framework for Ruby: Booking Sample Application
 =======================================================
 
-.. include:: includes/booking_desc.rst
+.. include:: ../includes/Samples_Booking_desc.rst
 
-.. include:: includes/prerequisites.rst
+.. include:: ../includes/prerequisites.rst
 
-Download the Sample
--------------------
-
-Download the sample by clicking the following link:
-
-- `Booking Sample`_
-
-Once you've downloaded the sample ``.zip``, unarchive it and make note of the location you've expanded the archive into.
+.. include:: ../includes/download.rst
 
 Run the Sample
 --------------
@@ -25,7 +18,7 @@ Run the Sample
     cd ~/Downloads/Booking/lib
 
 .. step 2 is common to all samples.
-.. include:: includes/credential_step.rst
+.. include:: ../includes/credential_step.rst
 
 3. Execute the following commands on your command-line::
 
@@ -37,7 +30,5 @@ Run the Sample
 
 .. In the future, we'll include the "About the Sample Code" section right here...
 
-.. include:: includes/more_info.rst
-
-.. _`Booking Sample`: https://awsdocs.s3.amazonaws.com/swf/1.0/samples/Booking.zip
+.. include:: ../includes/more_info.rst
 
