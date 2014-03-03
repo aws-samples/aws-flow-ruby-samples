@@ -1,5 +1,5 @@
-The *Cron* sample runs an activity periodically based on a cron
-expression.
+The Choice recipes show how to use a choice to *execute one of several
+activities*, or to *execute multiple activities from a larger group*.
 
 Prerequisites
 =============
@@ -45,17 +45,28 @@ git clone git@github.com:awslabs/aws-flow-ruby-samples.git
 
     [https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip](https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip)
 
-Run the Sample
-==============
+View the Recipe
+===============
 
-**To run the Cron sample:**
+The *Choice* recipe code is fully documented in the *AWS Flow Framework
+for Ruby Developer Guide*. There are two recipes provided:
 
-1.  Open a terminal window and change to the `lib`{.docutils .literal}
-    directory in the location where you cloned or unarchived the sample
-    code. For example:
+-   [Execute One of Several
+    Activities](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-subset-one.html)
+-   [Execute Multiple Activities from a Larger
+    Group](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-subset-multiple.html)
+
+Run the Recipe Code
+===================
+
+**To run the Choice Recipes:**
+
+1.  Open a terminal window and change to the `test`{.docutils .literal}
+    directory in the location where you have cloned or unarchived the
+    sample code. For example:
 
 ~~~~ {.literal-block}
-cd ~/Downloads/aws-flow-ruby-samples/Samples/Cron/lib
+cd ~/Downloads/aws-flow-ruby-samples/Recipes/Choice/test
 ~~~~
 
 2.  Create a file in the directory called `credentials.cfg`{.docutils
@@ -72,13 +83,9 @@ cd ~/Downloads/aws-flow-ruby-samples/Samples/Cron/lib
 3.  Execute the following commands on your command-line:
 
 ~~~~ {.literal-block}
-ruby cron_activity.rb &
-ruby cron_workflow.rb &
-ruby cron_workflow_starter.rb
+rspec exclusive_choice_integration_spec.rb
+rspec multi_choice_integration_spec.rb
 ~~~~
-
-    Alternately, you can execute the run\_cron.sh script to run all of
-    these commands at once.
 
 For More Information
 ====================

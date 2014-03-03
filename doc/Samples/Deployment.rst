@@ -12,10 +12,10 @@ Run the Sample
 
 **To run the Deployment sample:**
 
-1. Open a terminal window and change to the ``lib`` directory in the location where you unarchived the sample code. For
-   example::
+1. Open a terminal window and change to the ``lib`` directory in the location where you cloned or unarchived the sample
+   code. For example::
 
-    cd ~/Downloads/Deployment/lib
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/Deployment/lib
 
 .. step 2 is common to all samples.
 .. include:: ../includes/credential_step.rst

@@ -1,5 +1,5 @@
-The *Cron* sample runs an activity periodically based on a cron
-expression.
+The WaitForSignal code provides a recipe to *wait for an external signal
+and take a different code path if the signal is received*.
 
 Prerequisites
 =============
@@ -45,17 +45,26 @@ git clone git@github.com:awslabs/aws-flow-ruby-samples.git
 
     [https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip](https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip)
 
-Run the Sample
-==============
+View the Recipe
+===============
 
-**To run the Cron sample:**
+The *WaitForSignal* recipe code is fully documented in the *AWS Flow
+Framework for Ruby Developer Guide*:
 
-1.  Open a terminal window and change to the `lib`{.docutils .literal}
-    directory in the location where you cloned or unarchived the sample
-    code. For example:
+-   [Wait for an External
+    Signal](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-waitforsignal.html)
+
+Run the Recipe Code
+===================
+
+**To run the WaitForSignal Recipe:**
+
+1.  Open a terminal window and change to the `test`{.docutils .literal}
+    directory in the location where you have cloned or unarchived the
+    sample code. For example:
 
 ~~~~ {.literal-block}
-cd ~/Downloads/aws-flow-ruby-samples/Samples/Cron/lib
+cd ~/Downloads/aws-flow-ruby-samples/Recipes/WaitForSignal/test
 ~~~~
 
 2.  Create a file in the directory called `credentials.cfg`{.docutils
@@ -69,16 +78,11 @@ cd ~/Downloads/aws-flow-ruby-samples/Samples/Cron/lib
 :secret_access_key: "insert secret access key here"
 ~~~~
 
-3.  Execute the following commands on your command-line:
+3.  Execute the following command on your command-line:
 
 ~~~~ {.literal-block}
-ruby cron_activity.rb &
-ruby cron_workflow.rb &
-ruby cron_workflow_starter.rb
+rspec wait_for_signal_integration_spec.rb
 ~~~~
-
-    Alternately, you can execute the run\_cron.sh script to run all of
-    these commands at once.
 
 For More Information
 ====================

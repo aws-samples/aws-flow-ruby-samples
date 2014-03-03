@@ -21,6 +21,29 @@ see [Installing the AWS Flow Framework for
 Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
 in the *AWS Flow Framework for Ruby Developer Guide*.
 
+Downloading the Sample Code
+===========================
+
+You can get the sample code in two easy ways:
+
+-   Clone the project with either HTTPS or SSH authentication.
+
+    HTTPS:
+
+~~~~ {.literal-block}
+git clone https://github.com/awslabs/aws-flow-ruby-samples.git
+~~~~
+
+    SSH:
+
+~~~~ {.literal-block}
+git clone git@github.com:awslabs/aws-flow-ruby-samples.git
+~~~~
+
+-   Download the entire repository as a .zip file, using:
+
+    [https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip](https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip)
+
 Samples
 -------
 
@@ -101,6 +124,75 @@ Code + info: [Samples/Cron](Samples/Cron/)
 
 Recipes
 -------
+
+### HumanTask
+
+The HumanTask code provides a recipe to *Complete an Activity Task
+Manually*.
+
+Code + info: [Recipes/HumanTask](Recipes/HumanTask/)
+
+### ChildWorkflow
+
+The ChildWorkflow code provides a recipe to *start a child workflow
+inside a workflow execution*.
+
+Code + info: [Recipes/ChildWorkflow](Recipes/ChildWorkflow/)
+
+### RetryActivity
+
+The RetryActivity recipes show how to:
+
+-   apply a retry policy to *all invocations of an activity*
+-   specify a retry policy for an *activity client*, a *block of code*,
+    or for a *specific invocation of an activity*
+-   retry activities *without jitter*, or with *custom jitter logic*
+-   retry activities with *custom retry policies*
+
+Code + info: [Recipes/RetryActivity](Recipes/RetryActivity/)
+
+### HandleError
+
+The HandleError code provides recipes to *respond to exceptions in
+asynchronous activities depending on exception type* and to *handle
+exceptions in asynchronous activities and perform cleanup*.
+
+Code + info: [Recipes/HandleError](Recipes/HandleError/)
+
+### WaitForSignal
+
+The WaitForSignal code provides a recipe to *wait for an external signal
+and take a different code path if the signal is received*.
+
+Code + info: [Recipes/WaitForSignal](Recipes/WaitForSignal/)
+
+### Branch
+
+The Branch code provides a recipe to *execute a dynamically-determined
+number of activities concurrently*.
+
+Code + info: [Recipes/Branch](Recipes/Branch/)
+
+### Choice
+
+The Choice recipes show how to use a choice to *execute one of several
+activities*, or to *execute multiple activities from a larger group*.
+
+Code + info: [Recipes/Choice](Recipes/Choice/)
+
+### PickFirstBranch
+
+The PickFirstBranch code provides a recipe to *execute multiple
+activities concurrently and pick the fastest*.
+
+Code + info: [Recipes/PickFirstBranch](Recipes/PickFirstBranch/)
+
+### ConditionalLoop
+
+The Conditional Loop code provides a recipe to *execute a
+dynamically-determined number of activities concurrently*.
+
+Code + info: [Recipes/ConditionalLoop](Recipes/ConditionalLoop/)
 
 For More Information
 ====================

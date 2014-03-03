@@ -31,13 +31,17 @@ You can get the sample code in two easy ways:
 
 -   Clone the project with either HTTPS or SSH authentication.
 
-    HTTPS::
-      ~ git clone
-        [https://github.com/awslabs/aws-flow-ruby-samples.git](https://github.com/awslabs/aws-flow-ruby-samples.git)
+    HTTPS:
 
-    SSH::
-      ~ git clone
-        [git@github.com](mailto:git@github.com):awslabs/aws-flow-ruby-samples.git
+~~~~ {.literal-block}
+git clone https://github.com/awslabs/aws-flow-ruby-samples.git
+~~~~
+
+    SSH:
+
+~~~~ {.literal-block}
+git clone git@github.com:awslabs/aws-flow-ruby-samples.git
+~~~~
 
 -   Download the entire repository as a .zip file, using:
 
@@ -49,17 +53,17 @@ Run the Sample
 **To run the Periodic sample:**
 
 1.  Open a terminal window and change to the `lib`{.docutils .literal}
-    directory in the location where you unarchived the sample code. For
-    example:
+    directory in the location where you cloned or unarchived the sample
+    code. For example:
 
 ~~~~ {.literal-block}
-cd ~/Downloads/Periodic/lib
+cd ~/Downloads/aws-flow-ruby-samples/Samples/Periodic/lib
 ~~~~
 
-2.  Create a file in the `lib`{.docutils .literal} directory called
-    `credentials.cfg`{.docutils .literal} and enter the following text,
-    replacing the strings "insert ... access key here" with your AWS
-    Access Key ID and your Secret Access Key.:
+2.  Create a file in the directory called `credentials.cfg`{.docutils
+    .literal} and enter the following text, replacing the strings
+    "insert ... access key here" with your AWS Access Key ID and your
+    Secret Access Key.:
 
 ~~~~ {.literal-block}
 ---

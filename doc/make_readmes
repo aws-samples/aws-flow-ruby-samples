@@ -38,8 +38,14 @@ def build_readmes(path, build_dir):
         print "Invalid path: '%s'" % path
         return False
 
+    print "Building READMEs in %s..." % path
+
     # Gather all of the .rst files
     files_to_process = glob.glob("%s/*.rst" % path)
+
+    if len(files_to_process) < 1:
+        print "  *** none found ***"
+        return True
 
     # sub_build_dir is something like ``build/Recipes``.
     sub_build_dir = "%s/%s" % (build_dir, path)
@@ -55,7 +61,7 @@ def build_readmes(path, build_dir):
     for filename in files_to_process:
         # Make README.md for each sample
         (basename, extension) = os.path.splitext(os.path.basename(filename))
-        print "   * %s" % basename
+        print "  * %s" % basename
         os.system('rst2html.py {filename} >{sub_build_dir}/{basename}.html'.format(
             filename=filename, sub_build_dir=sub_build_dir, basename=basename))
         os.system('pandoc -t markdown {sub_build_dir}/{basename}.html -o ../{path}/{basename}/README.md'.format(
@@ -97,8 +103,6 @@ if os.path.exists(build_dir):
 # make new docs
 os.makedirs(build_dir)
 
-print "Building READMEs..."
-
 result = False
 for subdir in dirs_to_build:
     result = build_readmes(subdir, build_dir)
@@ -107,7 +111,7 @@ for subdir in dirs_to_build:
 
 if result is True:
     # generate the master README
-    print "   * README.md"
+    print "Building master README.md"
     os.system('rst2html.py includes/BASE_README.rst >{build_dir}/README.html'.format(build_dir=build_dir))
     os.system('pandoc -t markdown {build_dir}/README.html -o ../README.md'.format(build_dir=build_dir))
 
