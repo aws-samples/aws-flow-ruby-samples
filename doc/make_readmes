@@ -28,6 +28,14 @@ import re
 #      to have your cake and to eat it too, you say? Yes!
 
 #
+#  BUILD PARAMETERS
+#
+
+BUILD_DIR = 'build'
+INCLUDES_DIR = 'includes'
+DIRS_TO_BUILD = ['Samples', 'Recipes']
+
+#
 #  FUNCTIONS
 #
 
@@ -46,7 +54,14 @@ def remove_literals(filename):
     f.close()
 
 
-def build_readmes(path, build_dir):
+def rst2md(in_path, out_path):
+    """Convert the .rst file on in_path to a markdown file on out_path"""
+    os.system('rst2html.py --no-doc-title %s >%s/tmp.html' % (in_path, BUILD_DIR))
+    os.system('pandoc -t markdown %s/tmp.html -o %s' % (BUILD_DIR, out_path))
+    remove_literals(out_path)
+
+
+def build_readmes(path, BUILD_DIR):
     """Build readmes within a given path.
     Returns True if the build was successful; False otherwise.
     """
@@ -63,39 +78,31 @@ def build_readmes(path, build_dir):
         print "  *** none found ***"
         return True
 
-    # sub_build_dir is something like ``build/Recipes``.
-    sub_build_dir = "%s/%s" % (build_dir, path)
-    os.makedirs(sub_build_dir)
-    desc_file_name = "all_descs.rst"
-
-    # Open the sample descriptions file for writing (well, *appending*).
-    desc_file = open("%s/%s" % (build_dir, desc_file_name), 'a+')
-
-    # Write the title of this section (named after the path)
-    desc_file.write('%s\n%s\n\n' % (path, '~' * len(path)))
+    desc_file = open("%s/%s_descs.rst" % (BUILD_DIR, path), "w+")
 
     for filename in files_to_process:
         # Make README.md for each sample
         (basename, extension) = os.path.splitext(os.path.basename(filename))
         print "  * %s" % basename
-        os.system('rst2html.py --no-doc-title %s >%s/%s.html' % (filename,
-            sub_build_dir, basename))
         out_path = '../%s/%s/README.md' % (path, basename)
-        os.system('pandoc -t markdown %s/%s.html -o %s' % (sub_build_dir,
-            basename, out_path))
-        remove_literals(out_path)
+        rst2md(filename, out_path)
 
-        # Make sample descriptions
-
-        # write the title
+        # Add this entry to the descriptions file:
+        # 1. write the title
         desc_file.write('%s\n%s\n\n' % (basename, '.' * len(basename)))
-        # write the description
-        desc_file.write('.. include:: ../%s/%s_%s_desc.rst\n\n' % (includes_dir, path, basename))
-        # link to the sample directory
+        # 2. write the description
+        desc_file.write('.. include:: ../%s/%s_%s_desc.rst\n\n' % (INCLUDES_DIR, path, basename))
+        # 3. link to the sample directory
         desc_file.write('Code + info: `{path}/{basename} <{path}/{basename}/>`_\n\n'.format(
             path=path, basename=basename))
 
     desc_file.close()
+
+    # make the directory-level README.
+    print "  * README.md"
+    in_path = "%s/%s.rst" % (INCLUDES_DIR, path)
+    out_path = "../%s/README.md" % path
+    rst2md(in_path, out_path)
 
     # so far, so good, eh?
     return True
@@ -105,36 +112,43 @@ def build_readmes(path, build_dir):
 #  THE SCRIPT
 #
 
-build_dir = 'build'
-includes_dir = 'includes'
-dirs_to_build = ['Samples', 'Recipes']
-
 print "Preparing build..."
 
 # remove old docs
-if os.path.exists(build_dir):
-    if os.path.isdir(build_dir):
-        shutil.rmtree(build_dir)
+if os.path.exists(BUILD_DIR):
+    if os.path.isdir(BUILD_DIR):
+        shutil.rmtree(BUILD_DIR)
     else:
         print "Error: %s exists, but is a regular file. Please remove or rename it!"
         sys.exit()
 
 # make new docs
-os.makedirs(build_dir)
+os.makedirs(BUILD_DIR)
+
+# Open the sample descriptions file for writing
+desc_file_name = 'all_descs.rst'
+desc_file = open("%s/%s" % (BUILD_DIR, desc_file_name), 'w+')
 
 result = False
-for subdir in dirs_to_build:
-    result = build_readmes(subdir, build_dir)
+for subdir in DIRS_TO_BUILD:
+    result = build_readmes(subdir, BUILD_DIR)
     if result is False:
         break
+
+    # Write the title of this section (named after the path)
+    desc_file.write('%s\n%s\n\n' % (subdir, '~' * len(subdir)))
+
+    # insert the directory-level descriptions
+    dir_desc_file = open("%s/%s_descs.rst" % (BUILD_DIR, subdir), 'r+')
+    desc_file.write(dir_desc_file.read())
+    dir_desc_file.close()
+
+desc_file.close()
 
 if result is True:
     # generate the master README
     print "Building master README.md"
-    os.system('rst2html.py --no-doc-title includes/BASE_README.rst >%s/README.html' % build_dir)
-    out_path = '../README.md'
-    os.system('pandoc -t markdown %s/README.html -o %s' % (build_dir, out_path))
-    remove_literals(out_path)
+    rst2md('%s/BASE_README.rst' % INCLUDES_DIR, '../README.md')
 
     # That's all, folks!
     print "Finished!"
