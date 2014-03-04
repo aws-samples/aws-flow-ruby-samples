@@ -41,7 +41,7 @@ Run the Sample
 
 **To run the Booking sample:**
 
-1.  Open a terminal window and change to the `lib`{.docutils .literal}
+1.  Open a terminal window and change to the `lib`
     directory in the location where you cloned or unarchived the sample
     code. For example:
 

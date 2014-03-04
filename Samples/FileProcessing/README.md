@@ -3,7 +3,7 @@ AWS Flow Framework for Ruby: FileProcessing Sample Application
 
 The *FileProcessing* sample demonstrates a media processing use case.
 The workflow downloads a file from an Amazon S3 bucket, creates a
-`.zip`{.docutils .literal} file and uploads that `.zip`{.docutils
+`.zip` file and uploads that `.zip`{.docutils
 .literal} file back to Amazon S3. The task routing feature in Amazon SWF
 is illustrated in this sample.
 
@@ -46,7 +46,7 @@ Run the Sample
 
 **To run the FileProcessing sample:**
 
-1.  Open a terminal window and change to the `lib`{.docutils .literal}
+1.  Open a terminal window and change to the `lib`
     directory in the location where you cloned or unarchived the sample
     code. For example:
 

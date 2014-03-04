@@ -61,8 +61,8 @@ Code + info: [Samples/Cron](Samples/Cron/)
 #### CronWithRetry
 
 The *CronWithRetry* sample demonstrates how to run a scheduled task with
-`exponential_retry`{.docutils .literal} options. Once the workflow is
-complete, `continue_as_new`{.docutils .literal} is used to re-run the
+`exponential_retry` options. Once the workflow is
+complete, `continue_as_new` is used to re-run the
 workflow at the next scheduled time.
 
 Code + info: [Samples/CronWithRetry](Samples/CronWithRetry/)
@@ -81,7 +81,7 @@ Code + info: [Samples/Deployment](Samples/Deployment/)
 
 The *FileProcessing* sample demonstrates a media processing use case.
 The workflow downloads a file from an Amazon S3 bucket, creates a
-`.zip`{.docutils .literal} file and uploads that `.zip`{.docutils
+`.zip` file and uploads that `.zip`{.docutils
 .literal} file back to Amazon S3. The task routing feature in Amazon SWF
 is illustrated in this sample.
 
@@ -112,7 +112,7 @@ split](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-wo
 followed by a [simple
 merge](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-workflow-patterns.html#programming-workflow-patterns-simple-merge)
 workflow pattern. It spawns a number of worker activities which are then
-merged using `wait_for_all`{.docutils .literal}.
+merged using `wait_for_all`.
 
 Code + info: [Samples/SplitMerge](Samples/SplitMerge/)
 

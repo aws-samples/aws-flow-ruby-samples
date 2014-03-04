@@ -47,7 +47,7 @@ Run the Recipe Code
 
 **To run the ChildWorkflow Recipe:**
 
-1.  Open a terminal window and change to the `test`{.docutils .literal}
+1.  Open a terminal window and change to the `test`
     directory in the location where you have cloned or unarchived the
     sample code. For example:
 

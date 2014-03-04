@@ -38,7 +38,7 @@ def remove_literals(filename):
     contents = f.read()
     f.close()
     contents = re.sub(' {\.literal-block}', '', contents)
-    contents = re.sub(' {\.docutils.*?}', '', contents)
+    contents = re.sub('{\.docutils.*?}', '', contents)
     f = open(filename, "w")
     f.write(contents)
     f.close()

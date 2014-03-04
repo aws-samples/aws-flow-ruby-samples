@@ -2,8 +2,8 @@ AWS Flow Framework for Ruby: CronWithRetry Sample Application
 =============================================================
 
 The *CronWithRetry* sample demonstrates how to run a scheduled task with
-`exponential_retry`{.docutils .literal} options. Once the workflow is
-complete, `continue_as_new`{.docutils .literal} is used to re-run the
+`exponential_retry` options. Once the workflow is
+complete, `continue_as_new` is used to re-run the
 workflow at the next scheduled time.
 
 Prerequisites
@@ -40,7 +40,7 @@ Run the Sample
 
 **To run the CronWithRetry sample:**
 
-1.  Open a terminal window and change to the `lib`{.docutils .literal}
+1.  Open a terminal window and change to the `lib`
     directory in the location where you cloned or unarchived the sample
     code. For example:
 
