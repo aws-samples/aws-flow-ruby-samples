@@ -54,8 +54,8 @@ Run the Sample
     cd ~/Downloads/aws-flow-ruby-samples/Samples/FileProcessing/lib
     ~~~~
 
-2.  Create a file in the directory called `credentials.cfg`{.docutils
-    .literal} and enter the following text, replacing the strings
+2.  Create a file in the directory called `credentials.cfg`
+ and enter the following text, replacing the strings
     "insert ... access key here" with your AWS Access Key ID and your
     Secret Access Key.:
 

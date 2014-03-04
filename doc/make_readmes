@@ -39,6 +39,8 @@ def remove_literals(filename):
     f.close()
     contents = re.sub(' {\.literal-block}', '', contents)
     contents = re.sub('{\.docutils.*?}', '', contents)
+    contents = re.sub('{\.docutils\s*$', '', contents, flags=re.MULTILINE) # catches a line-break.
+    contents = re.sub('^\s*\.literal}', '', contents, flags=re.MULTILINE) # gets the other side of the line break.
     f = open(filename, "w")
     f.write(contents)
     f.close()
