@@ -1,3 +1,6 @@
+AWS Flow Framework for Ruby: FileProcessing Sample Application
+==============================================================
+
 The *FileProcessing* sample demonstrates a media processing use case.
 The workflow downloads a file from an Amazon S3 bucket, creates a
 `.zip`{.docutils .literal} file and uploads that `.zip`{.docutils
@@ -5,7 +8,7 @@ The workflow downloads a file from an Amazon S3 bucket, creates a
 is illustrated in this sample.
 
 Prerequisites
-=============
+-------------
 
 The *AWS Flow Framework for Ruby* is required, which can be obtained and
 installed using the information here:
@@ -16,7 +19,7 @@ If you already have [Ruby](https://www.ruby-lang.org/) and
 [RubyGems](http://rubygems.org/) installed, you can install the
 framework by opening a terminal window and typing:
 
-~~~~ {.literal-block}
+~~~~
 gem install aws-flow
 ~~~~
 
@@ -31,7 +34,7 @@ library. To install it, run the following command:
 > gem install rubyzip
 
 Downloading the Sample Code
-===========================
+---------------------------
 
 To view or download the code for all of the AWS Flow Framework for Ruby
 recipes and samples, go to:
@@ -39,7 +42,7 @@ recipes and samples, go to:
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
 Run the Sample
-==============
+--------------
 
 **To run the FileProcessing sample:**
 
@@ -47,7 +50,7 @@ Run the Sample
     directory in the location where you cloned or unarchived the sample
     code. For example:
 
-    ~~~~ {.literal-block}
+    ~~~~
     cd ~/Downloads/aws-flow-ruby-samples/Samples/FileProcessing/lib
     ~~~~
 
@@ -56,7 +59,7 @@ Run the Sample
     "insert ... access key here" with your AWS Access Key ID and your
     Secret Access Key.:
 
-    ~~~~ {.literal-block}
+    ~~~~
     ---
     :access_key_id: "insert access key here"
     :secret_access_key: "insert secret access key here"
@@ -64,7 +67,7 @@ Run the Sample
 
 3.  Execute the following commands on your command-line:
 
-    ~~~~ {.literal-block}
+    ~~~~
     ruby file_processing_activity_worker.rb &
     ruby file_processing_workflow.rb &
     ruby file_processing_workflow_starter.rb
@@ -74,7 +77,7 @@ Run the Sample
     script to run all of these commands at once.
 
 For More Information
-====================
+--------------------
 
 For more information about the Amazon Simple Workflow service and the
 Amazon Flow Framework for Ruby, consult the following resources:

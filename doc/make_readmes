@@ -3,6 +3,7 @@ import sys
 import os
 import shutil
 import glob
+import re
 
 # Build script for the AWS Flow Framework for Ruby samples and recipes.
 #
@@ -29,6 +30,19 @@ import glob
 #
 #  FUNCTIONS
 #
+
+def remove_literals(filename):
+    """Remove the {.literal-block} and {.docutils .literal} tags that are added
+    to code fragments."""
+    f = open(filename)
+    contents = f.read()
+    f.close()
+    contents = re.sub(' {\.literal-block}', '', contents)
+    contents = re.sub(' {\.docutils.*?}', '', contents)
+    f = open(filename, "w")
+    f.write(contents)
+    f.close()
+
 
 def build_readmes(path, build_dir):
     """Build readmes within a given path.
@@ -62,10 +76,12 @@ def build_readmes(path, build_dir):
         # Make README.md for each sample
         (basename, extension) = os.path.splitext(os.path.basename(filename))
         print "  * %s" % basename
-        os.system('rst2html.py {filename} >{sub_build_dir}/{basename}.html'.format(
-            filename=filename, sub_build_dir=sub_build_dir, basename=basename))
-        os.system('pandoc -t markdown {sub_build_dir}/{basename}.html -o ../{path}/{basename}/README.md'.format(
-            sub_build_dir=sub_build_dir, path=path, basename=basename))
+        os.system('rst2html.py --no-doc-title %s >%s/%s.html' % (filename,
+            sub_build_dir, basename))
+        out_path = '../%s/%s/README.md' % (path, basename)
+        os.system('pandoc -t markdown %s/%s.html -o %s' % (sub_build_dir,
+            basename, out_path))
+        remove_literals(out_path)
 
         # Make sample descriptions
 
@@ -81,6 +97,7 @@ def build_readmes(path, build_dir):
 
     # so far, so good, eh?
     return True
+
 
 #
 #  THE SCRIPT
@@ -112,8 +129,10 @@ for subdir in dirs_to_build:
 if result is True:
     # generate the master README
     print "Building master README.md"
-    os.system('rst2html.py includes/BASE_README.rst >{build_dir}/README.html'.format(build_dir=build_dir))
-    os.system('pandoc -t markdown_github {build_dir}/README.html -o ../README.md'.format(build_dir=build_dir))
+    os.system('rst2html.py --no-doc-title includes/BASE_README.rst >%s/README.html' % build_dir)
+    out_path = '../README.md'
+    os.system('pandoc -t markdown %s/README.html -o %s' % (build_dir, out_path))
+    remove_literals(out_path)
 
     # That's all, folks!
     print "Finished!"

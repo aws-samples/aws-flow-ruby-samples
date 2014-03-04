@@ -1,3 +1,6 @@
+AWS Flow Framework for Ruby: SplitMerge Sample Application
+==========================================================
+
 The *SplitMerge* sample demonstrates a [parallel
 split](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-workflow-patterns.html#programming-workflow-patterns-synchronization)
 followed by a [simple
@@ -6,7 +9,7 @@ workflow pattern. It spawns a number of worker activities which are then
 merged using `wait_for_all`{.docutils .literal}.
 
 Prerequisites
-=============
+-------------
 
 The *AWS Flow Framework for Ruby* is required, which can be obtained and
 installed using the information here:
@@ -17,7 +20,7 @@ If you already have [Ruby](https://www.ruby-lang.org/) and
 [RubyGems](http://rubygems.org/) installed, you can install the
 framework by opening a terminal window and typing:
 
-~~~~ {.literal-block}
+~~~~
 gem install aws-flow
 ~~~~
 
@@ -27,7 +30,7 @@ Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html
 in the *AWS Flow Framework for Ruby Developer Guide*.
 
 Downloading the Sample Code
-===========================
+---------------------------
 
 To view or download the code for all of the AWS Flow Framework for Ruby
 recipes and samples, go to:
@@ -35,13 +38,13 @@ recipes and samples, go to:
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
 Configure the Sample
-====================
+--------------------
 
 This sample requires a little bit of configuration. Open the
 `split_merge_config.yml`{.docutils .literal} file and edit the following
 line:
 
-~~~~ {.literal-block}
+~~~~
 SplitMerge.Input.BucketName: swf-private-beta-samples
 ~~~~
 
@@ -51,7 +54,7 @@ about how to create S3 buckets, see the [Amazon S3 Getting Started
 Guide](http://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)
 
 Run the Sample
-==============
+--------------
 
 **To run the SplitMerge sample:**
 
@@ -59,7 +62,7 @@ Run the Sample
     directory in the location where you cloned or unarchived the sample
     code. For example:
 
-    ~~~~ {.literal-block}
+    ~~~~
     cd ~/Downloads/aws-flow-ruby-samples/Samples/SplitMerge/lib
     ~~~~
 
@@ -68,7 +71,7 @@ Run the Sample
     "insert ... access key here" with your AWS Access Key ID and your
     Secret Access Key.:
 
-    ~~~~ {.literal-block}
+    ~~~~
     ---
     :access_key_id: "insert access key here"
     :secret_access_key: "insert secret access key here"
@@ -76,7 +79,7 @@ Run the Sample
 
 3.  Execute the following commands on your command-line:
 
-    ~~~~ {.literal-block}
+    ~~~~
     ruby average_calculator_activity.rb &
     ruby average_calculator_workflow.rb &
     ruby average_calculator_workflow_starter.rb
@@ -86,7 +89,7 @@ Run the Sample
     to run all of these commands at once.
 
 For More Information
-====================
+--------------------
 
 For more information about the Amazon Simple Workflow service and the
 Amazon Flow Framework for Ruby, consult the following resources:
