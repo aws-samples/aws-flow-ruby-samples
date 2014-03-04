@@ -4,8 +4,10 @@ AWS Flow Framework for Ruby Samples
 This directory contains the AWS Flow Framework for Ruby *Samples*.
 
 These samples demonstrate many of the features of the AWS Flow Framework
-for Ruby, as described in the AWS Flow Framework for Ruby Developer
-Guide and the AWS Flow Framework for Ruby API Reference.
+for Ruby, as described in the [AWS Flow Framework for Ruby Developer
+Guide](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/) and
+the [AWS Flow Framework for Ruby API
+Reference](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowapi/).
 
 The following samples are provided:
 
