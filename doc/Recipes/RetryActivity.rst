@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: RetryActivity Recipe
 View the Recipe
 ---------------
 
-The *RetryActivity* recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*. There are
+The **RetryActivity** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*. There are
 eight recipes provided:
 
 * `Apply a Retry Policy to All Invocations of an Activity`_

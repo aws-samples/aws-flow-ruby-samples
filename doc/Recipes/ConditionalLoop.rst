@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: ConditionalLoop Recipe
 View the Recipe
 ---------------
 
-The *ConditionalLoop* recipe code is fully documented in the AWS Flow Framework for Ruby Developer Guide:
+The **ConditionalLoop** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
 
 - `Executing Activities Repeatedly`_
 

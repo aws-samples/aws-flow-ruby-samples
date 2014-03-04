@@ -27,25 +27,10 @@ in the *AWS Flow Framework for Ruby Developer Guide*.
 Downloading the Sample Code
 ===========================
 
-You can get the sample code in two easy ways:
+To view or download the code for all of the AWS Flow Framework for Ruby
+recipes and samples, go to:
 
--   Clone the project with either HTTPS or SSH authentication.
-
-    HTTPS:
-
-~~~~ {.literal-block}
-git clone https://github.com/awslabs/aws-flow-ruby-samples.git
-~~~~
-
-    SSH:
-
-~~~~ {.literal-block}
-git clone git@github.com:awslabs/aws-flow-ruby-samples.git
-~~~~
-
--   Download the entire repository as a .zip file, using:
-
-    [https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip](https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip)
+-   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
 Run the Sample
 ==============
@@ -56,29 +41,29 @@ Run the Sample
     directory in the location where you cloned or unarchived the sample
     code. For example:
 
-~~~~ {.literal-block}
-cd ~/Downloads/aws-flow-ruby-samples/Samples/Periodic/lib
-~~~~
+    ~~~~ {.literal-block}
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/Periodic/lib
+    ~~~~
 
 2.  Create a file in the directory called `credentials.cfg`{.docutils
     .literal} and enter the following text, replacing the strings
     "insert ... access key here" with your AWS Access Key ID and your
     Secret Access Key.:
 
-~~~~ {.literal-block}
----
-:access_key_id: "insert access key here"
-:secret_access_key: "insert secret access key here"
-~~~~
+    ~~~~ {.literal-block}
+    ---
+    :access_key_id: "insert access key here"
+    :secret_access_key: "insert secret access key here"
+    ~~~~
 
 3.  Execute the following commands on your command-line:
 
-~~~~ {.literal-block}
-ruby error_reporting_activity.rb &
-ruby periodic_activity.rb &
-ruby periodic_workflow.rb &
-ruby periodic_workflow_starter.rb
-~~~~
+    ~~~~ {.literal-block}
+    ruby error_reporting_activity.rb &
+    ruby periodic_activity.rb &
+    ruby periodic_workflow.rb &
+    ruby periodic_workflow_starter.rb
+    ~~~~
 
     Alternately, you can execute the run\_periodic.sh shell script to
     run all of these commands at once.

@@ -1,4 +1,4 @@
-The HandleError code provides recipes to *respond to exceptions in
+The **HandleError** code provides recipes to *respond to exceptions in
 asynchronous activities depending on exception type* and to *handle
 exceptions in asynchronous activities and perform cleanup*.
 
@@ -26,30 +26,15 @@ in the *AWS Flow Framework for Ruby Developer Guide*.
 Downloading the Sample Code
 ===========================
 
-You can get the sample code in two easy ways:
+To view or download the code for all of the AWS Flow Framework for Ruby
+recipes and samples, go to:
 
--   Clone the project with either HTTPS or SSH authentication.
-
-    HTTPS:
-
-~~~~ {.literal-block}
-git clone https://github.com/awslabs/aws-flow-ruby-samples.git
-~~~~
-
-    SSH:
-
-~~~~ {.literal-block}
-git clone git@github.com:awslabs/aws-flow-ruby-samples.git
-~~~~
-
--   Download the entire repository as a .zip file, using:
-
-    [https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip](https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip)
+-   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
 View the Recipe
 ===============
 
-The *HandleError* recipe code is fully documented in the *AWS Flow
+The **HandleError** recipe code is fully documented in the *AWS Flow
 Framework for Ruby Developer Guide*. There are two recipes provided:
 
 -   [Respond to Exceptions in Asynchronous Activities Depending on
@@ -67,27 +52,27 @@ Run the Recipe Code
     directory in the location where you have cloned or unarchived the
     sample code. For example:
 
-~~~~ {.literal-block}
-cd ~/Downloads/aws-flow-ruby-samples/Recipes/HandleError/test
-~~~~
+    ~~~~ {.literal-block}
+    cd ~/Downloads/aws-flow-ruby-samples/Recipes/HandleError/test
+    ~~~~
 
 2.  Create a file in the directory called `credentials.cfg`{.docutils
     .literal} and enter the following text, replacing the strings
     "insert ... access key here" with your AWS Access Key ID and your
     Secret Access Key.:
 
-~~~~ {.literal-block}
----
-:access_key_id: "insert access key here"
-:secret_access_key: "insert secret access key here"
-~~~~
+    ~~~~ {.literal-block}
+    ---
+    :access_key_id: "insert access key here"
+    :secret_access_key: "insert secret access key here"
+    ~~~~
 
 3.  Execute the following commands on your command-line:
 
-~~~~ {.literal-block}
-rspec handle_error_integration_spec.rb
-rspec clean_up_resource_integration_spec.rb
-~~~~
+    ~~~~ {.literal-block}
+    rspec handle_error_integration_spec.rb
+    rspec clean_up_resource_integration_spec.rb
+    ~~~~
 
 For More Information
 ====================

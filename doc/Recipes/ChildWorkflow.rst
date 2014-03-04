@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: ChildWorkflow Recipe
 View the Recipe
 ---------------
 
-The *ChildWorkflow* recipe code is fully documented in the AWS Flow Framework for Ruby Developer Guide:
+The **ChildWorkflow** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
 
 - `Start a Child Workflow Inside a Workflow Execution`_
 

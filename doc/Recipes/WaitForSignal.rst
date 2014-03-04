@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: WaitForSignal Recipe
 View the Recipe
 ---------------
 
-The *WaitForSignal* recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
+The **WaitForSignal** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
 
 - `Wait for an External Signal`_
 

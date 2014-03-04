@@ -113,7 +113,7 @@ if result is True:
     # generate the master README
     print "Building master README.md"
     os.system('rst2html.py includes/BASE_README.rst >{build_dir}/README.html'.format(build_dir=build_dir))
-    os.system('pandoc -t markdown {build_dir}/README.html -o ../README.md'.format(build_dir=build_dir))
+    os.system('pandoc -t markdown_github {build_dir}/README.html -o ../README.md'.format(build_dir=build_dir))
 
     # That's all, folks!
     print "Finished!"

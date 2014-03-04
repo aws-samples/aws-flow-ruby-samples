@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: Branch Recipe
 View the Recipe
 ---------------
 
-The *Branch* recipe code is fully documented in the AWS Flow Framework for Ruby Developer Guide:
+The **Branch** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
 
 - `Execute a Dynamically Determined Number of Activities Concurrently`_
 

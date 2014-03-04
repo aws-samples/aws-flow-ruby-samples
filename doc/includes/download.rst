@@ -1,18 +1,6 @@
 Downloading the Sample Code
 ---------------------------
 
-You can get the sample code in two easy ways:
+To view or download the code for all of the AWS Flow Framework for Ruby recipes and samples, go to:
 
-* Clone the project with either HTTPS or SSH authentication.
-
-  HTTPS::
-
-    git clone https://github.com/awslabs/aws-flow-ruby-samples.git
-
-  SSH::
-
-    git clone git@github.com:awslabs/aws-flow-ruby-samples.git
-
-* Download the entire repository as a .zip file, using:
-
-  https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip
+* https://github.com/awslabs/aws-flow-ruby-samples

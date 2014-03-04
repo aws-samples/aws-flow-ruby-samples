@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: PickFirstBranch Recipe
 View the Recipe
 ---------------
 
-The *PickFirstBranch* recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
+The **PickFirstBranch** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
 
 - `Execute Multiple Activities Concurrently and Pick the Fastest`_
 

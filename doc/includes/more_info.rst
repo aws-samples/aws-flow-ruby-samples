@@ -1,8 +1,8 @@
 For More Information
 --------------------
 
-For more information about the Amazon Simple Workflow service and the
-Amazon Flow Framework for Ruby, consult the following resources:
+For more information about the Amazon Simple Workflow service and the Amazon Flow Framework for Ruby, consult the
+following resources:
 
 - `AWS Flow Framework for Ruby Developer Guide`_
 - `AWS Flow Framework for Ruby API Reference`_

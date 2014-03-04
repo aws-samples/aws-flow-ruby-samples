@@ -1,4 +1,4 @@
-The HumanTask code provides a recipe to *Complete an Activity Task
+The **HumanTask** code provides a recipe to *Complete an Activity Task
 Manually*.
 
 Prerequisites
@@ -25,31 +25,16 @@ in the *AWS Flow Framework for Ruby Developer Guide*.
 Downloading the Sample Code
 ===========================
 
-You can get the sample code in two easy ways:
+To view or download the code for all of the AWS Flow Framework for Ruby
+recipes and samples, go to:
 
--   Clone the project with either HTTPS or SSH authentication.
-
-    HTTPS:
-
-~~~~ {.literal-block}
-git clone https://github.com/awslabs/aws-flow-ruby-samples.git
-~~~~
-
-    SSH:
-
-~~~~ {.literal-block}
-git clone git@github.com:awslabs/aws-flow-ruby-samples.git
-~~~~
-
--   Download the entire repository as a .zip file, using:
-
-    [https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip](https://github.com/awslabs/aws-flow-ruby-samples/archive/master.zip)
+-   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
 View the Recipe
 ===============
 
-The *HumanTask* recipe code is fully documented in the AWS Flow
-Framework for Ruby Developer Guide:
+The **HumanTask** recipe code is fully documented in the *AWS Flow
+Framework for Ruby Developer Guide*:
 
 -   [Executing Activities
     Repeatedly](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-loop.html)
@@ -63,26 +48,26 @@ Run the Recipe Code
     directory in the location where you have cloned or unarchived the
     sample code. For example:
 
-~~~~ {.literal-block}
-cd ~/Downloads/aws-flow-ruby-samples/Recipes/HumanTask/test
-~~~~
+    ~~~~ {.literal-block}
+    cd ~/Downloads/aws-flow-ruby-samples/Recipes/HumanTask/test
+    ~~~~
 
 2.  Create a file in the directory called `credentials.cfg`{.docutils
     .literal} and enter the following text, replacing the strings
     "insert ... access key here" with your AWS Access Key ID and your
     Secret Access Key.:
 
-~~~~ {.literal-block}
----
-:access_key_id: "insert access key here"
-:secret_access_key: "insert secret access key here"
-~~~~
+    ~~~~ {.literal-block}
+    ---
+    :access_key_id: "insert access key here"
+    :secret_access_key: "insert secret access key here"
+    ~~~~
 
 3.  Execute the following command on your command-line:
 
-~~~~ {.literal-block}
-rspec human_task_integration_spec.rb
-~~~~
+    ~~~~ {.literal-block}
+    rspec human_task_integration_spec.rb
+    ~~~~
 
 For More Information
 ====================

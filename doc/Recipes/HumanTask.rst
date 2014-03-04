@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: HumanTask Recipe
 View the Recipe
 ---------------
 
-The *HumanTask* recipe code is fully documented in the AWS Flow Framework for Ruby Developer Guide:
+The **HumanTask** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
 
 - `Executing Activities Repeatedly`_
 

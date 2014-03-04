@@ -10,7 +10,7 @@ AWS Flow Framework for Ruby: HandleError Recipe
 View the Recipe
 ---------------
 
-The *HandleError* recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*. There are two
+The **HandleError** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*. There are two
 recipes provided:
 
 - `Respond to Exceptions in Asynchronous Activities Depending on Exception Type`_

@@ -10,8 +10,8 @@ AWS Flow Framework for Ruby: Choice Recipe
 View the Recipe
 ---------------
 
-The *Choice* recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*. There are two recipes
-provided:
+The **Choice** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*. There are two
+recipes provided:
 
 - `Execute One of Several Activities`_
 - `Execute Multiple Activities from a Larger Group`_
