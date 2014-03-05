@@ -109,8 +109,8 @@ def build_readmes(path, BUILD_DIR):
         all_desc_file.write(desc_text)
 
         # 3. link to the sample directory
-        directory_desc_file.write('Code + info: `%s <%s>`_\n\n' % (basename, basename))
-        all_desc_file.write('Code + info: `%s/%s <%s/%s>`_\n\n' % (path,
+        directory_desc_file.write('Code + info: `%s <%s/>`_\n\n' % (basename, basename))
+        all_desc_file.write('Code + info: `%s/%s <%s/%s/>`_\n\n' % (path,
             basename, path, basename))
 
     directory_desc_file.close()

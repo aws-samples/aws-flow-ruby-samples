@@ -20,7 +20,7 @@ workflow pattern. It waits for two activities to complete: a car
 reservation and airline reservation. When both activities complete, it
 sends a confirmation. All activities are performed asynchronously.
 
-Code + info: <Booking>
+Code + info: [Booking](Booking/)
 
 Cron
 ----
@@ -28,7 +28,7 @@ Cron
 The *Cron* sample runs an activity periodically based on a cron
 expression.
 
-Code + info: <Cron>
+Code + info: [Cron](Cron/)
 
 CronWithRetry
 -------------
@@ -38,7 +38,7 @@ The *CronWithRetry* sample demonstrates how to run a scheduled task with
 complete, `continue_as_new` is used to re-run the
 workflow at the next scheduled time.
 
-Code + info: <CronWithRetry>
+Code + info: [CronWithRetry](CronWithRetry/)
 
 Deployment
 ----------
@@ -49,7 +49,7 @@ used to describe the application stack. The workflow takes this
 description as input and simulates the deployment of the components
 specified in it.
 
-Code + info: <Deployment>
+Code + info: [Deployment](Deployment/)
 
 FileProcessing
 --------------
@@ -60,7 +60,7 @@ The workflow downloads a file from an Amazon S3 bucket, creates a
 S3. The task routing feature in Amazon SWF is illustrated in this
 sample.
 
-Code + info: <FileProcessing>
+Code + info: [FileProcessing](FileProcessing/)
 
 HelloWorld
 ----------
@@ -70,7 +70,7 @@ activity to print Hello World. It shows basic usage of the framework,
 including implementing activities and workflow coordination logic and
 building workers to run the workflow and activities.
 
-Code + info: <HelloWorld>
+Code + info: [HelloWorld](HelloWorld/)
 
 Periodic
 --------
@@ -80,7 +80,7 @@ long-running workflow. The ability to continue executions as new
 executions so that an execution can run for very extended periods of
 time is demonstrated.
 
-Code + info: <Periodic>
+Code + info: [Periodic](Periodic/)
 
 SplitMerge
 ----------
@@ -92,4 +92,4 @@ merge](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-wo
 workflow pattern. It spawns a number of worker activities which are then
 merged using `wait_for_all`.
 
-Code + info: <SplitMerge>
+Code + info: [SplitMerge](SplitMerge/)

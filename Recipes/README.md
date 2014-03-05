@@ -16,7 +16,7 @@ Branch
 The **Branch** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: <Branch>
+Code + info: [Branch](Branch/)
 
 ChildWorkflow
 -------------
@@ -24,7 +24,7 @@ ChildWorkflow
 The **ChildWorkflow** code provides a recipe to *start a child workflow
 inside a workflow execution*.
 
-Code + info: <ChildWorkflow>
+Code + info: [ChildWorkflow](ChildWorkflow/)
 
 Choice
 ------
@@ -33,7 +33,7 @@ The **Choice** recipes show how to use a choice to *execute one of
 several activities*, or to *execute multiple activities from a larger
 group*.
 
-Code + info: <Choice>
+Code + info: [Choice](Choice/)
 
 ConditionalLoop
 ---------------
@@ -41,7 +41,7 @@ ConditionalLoop
 The **ConditionalLoop** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: <ConditionalLoop>
+Code + info: [ConditionalLoop](ConditionalLoop/)
 
 HandleError
 -----------
@@ -50,7 +50,7 @@ The **HandleError** code provides recipes to *respond to exceptions in
 asynchronous activities depending on exception type* and to *handle
 exceptions in asynchronous activities and perform cleanup*.
 
-Code + info: <HandleError>
+Code + info: [HandleError](HandleError/)
 
 HumanTask
 ---------
@@ -58,7 +58,7 @@ HumanTask
 The **HumanTask** code provides a recipe to *Complete an Activity Task
 Manually*.
 
-Code + info: <HumanTask>
+Code + info: [HumanTask](HumanTask/)
 
 PickFirstBranch
 ---------------
@@ -66,7 +66,7 @@ PickFirstBranch
 The **PickFirstBranch** code provides a recipe to *execute multiple
 activities concurrently and pick the fastest*.
 
-Code + info: <PickFirstBranch>
+Code + info: [PickFirstBranch](PickFirstBranch/)
 
 RetryActivity
 -------------
@@ -79,7 +79,7 @@ The **RetryActivity** recipes show how to:
 -   retry activities *without jitter*, or with *custom jitter logic*
 -   retry activities with *custom retry policies*
 
-Code + info: <RetryActivity>
+Code + info: [RetryActivity](RetryActivity/)
 
 WaitForSignal
 -------------
@@ -87,4 +87,4 @@ WaitForSignal
 The **WaitForSignal** code provides a recipe to *wait for an external
 signal and take a different code path if the signal is received*.
 
-Code + info: <WaitForSignal>
+Code + info: [WaitForSignal](WaitForSignal/)
