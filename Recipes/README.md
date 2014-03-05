@@ -16,7 +16,7 @@ Branch
 The **Branch** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: [Recipes/Branch](Recipes/Branch/)
+Code + info: <Branch>
 
 ChildWorkflow
 -------------
@@ -24,7 +24,7 @@ ChildWorkflow
 The **ChildWorkflow** code provides a recipe to *start a child workflow
 inside a workflow execution*.
 
-Code + info: [Recipes/ChildWorkflow](Recipes/ChildWorkflow/)
+Code + info: <ChildWorkflow>
 
 Choice
 ------
@@ -33,7 +33,7 @@ The **Choice** recipes show how to use a choice to *execute one of
 several activities*, or to *execute multiple activities from a larger
 group*.
 
-Code + info: [Recipes/Choice](Recipes/Choice/)
+Code + info: <Choice>
 
 ConditionalLoop
 ---------------
@@ -41,7 +41,7 @@ ConditionalLoop
 The **ConditionalLoop** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: [Recipes/ConditionalLoop](Recipes/ConditionalLoop/)
+Code + info: <ConditionalLoop>
 
 HandleError
 -----------
@@ -50,7 +50,7 @@ The **HandleError** code provides recipes to *respond to exceptions in
 asynchronous activities depending on exception type* and to *handle
 exceptions in asynchronous activities and perform cleanup*.
 
-Code + info: [Recipes/HandleError](Recipes/HandleError/)
+Code + info: <HandleError>
 
 HumanTask
 ---------
@@ -58,7 +58,7 @@ HumanTask
 The **HumanTask** code provides a recipe to *Complete an Activity Task
 Manually*.
 
-Code + info: [Recipes/HumanTask](Recipes/HumanTask/)
+Code + info: <HumanTask>
 
 PickFirstBranch
 ---------------
@@ -66,7 +66,7 @@ PickFirstBranch
 The **PickFirstBranch** code provides a recipe to *execute multiple
 activities concurrently and pick the fastest*.
 
-Code + info: [Recipes/PickFirstBranch](Recipes/PickFirstBranch/)
+Code + info: <PickFirstBranch>
 
 RetryActivity
 -------------
@@ -79,7 +79,7 @@ The **RetryActivity** recipes show how to:
 -   retry activities *without jitter*, or with *custom jitter logic*
 -   retry activities with *custom retry policies*
 
-Code + info: [Recipes/RetryActivity](Recipes/RetryActivity/)
+Code + info: <RetryActivity>
 
 WaitForSignal
 -------------
@@ -87,4 +87,4 @@ WaitForSignal
 The **WaitForSignal** code provides a recipe to *wait for an external
 signal and take a different code path if the signal is received*.
 
-Code + info: [Recipes/WaitForSignal](Recipes/WaitForSignal/)
+Code + info: <WaitForSignal>

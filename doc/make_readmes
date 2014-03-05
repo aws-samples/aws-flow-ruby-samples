@@ -36,6 +36,12 @@ INCLUDES_DIR = 'includes'
 DIRS_TO_BUILD = ['Samples', 'Recipes']
 
 #
+#  OTHER CONSTANTS
+#
+
+DESC_FILE_NAME = 'all_descs.rst'
+
+#
 #  FUNCTIONS
 #
 
@@ -78,7 +84,11 @@ def build_readmes(path, BUILD_DIR):
         print "  *** none found ***"
         return True
 
-    desc_file = open("%s/%s_descs.rst" % (BUILD_DIR, path), "w+")
+    all_desc_file = open("%s/%s" % (BUILD_DIR, DESC_FILE_NAME), "a+") # append instead of write
+    # Write the title of this section (named after the path)
+    all_desc_file.write('%s\n%s\n\n' % (path, '~' * len(path)))
+
+    directory_desc_file = open("%s/%s_descs.rst" % (BUILD_DIR, path), "w+")
 
     for filename in files_to_process:
         # Make README.md for each sample
@@ -89,14 +99,22 @@ def build_readmes(path, BUILD_DIR):
 
         # Add this entry to the descriptions file:
         # 1. write the title
-        desc_file.write('%s\n%s\n\n' % (basename, '.' * len(basename)))
-        # 2. write the description
-        desc_file.write('.. include:: ../%s/%s_%s_desc.rst\n\n' % (INCLUDES_DIR, path, basename))
-        # 3. link to the sample directory
-        desc_file.write('Code + info: `{path}/{basename} <{path}/{basename}/>`_\n\n'.format(
-            path=path, basename=basename))
+        title_text = '%s\n%s\n\n' % (basename, '.' * len(basename))
+        directory_desc_file.write(title_text)
+        all_desc_file.write(title_text)
 
-    desc_file.close()
+        # 2. write the description
+        desc_text = '.. include:: ../%s/%s_%s_desc.rst\n\n' % (INCLUDES_DIR, path, basename)
+        directory_desc_file.write(desc_text)
+        all_desc_file.write(desc_text)
+
+        # 3. link to the sample directory
+        directory_desc_file.write('Code + info: `%s <%s>`_\n\n' % (basename, basename))
+        all_desc_file.write('Code + info: `%s/%s <%s/%s>`_\n\n' % (path,
+            basename, path, basename))
+
+    directory_desc_file.close()
+    all_desc_file.close()
 
     # make the directory-level README.
     print "  * README.md"
@@ -125,25 +143,11 @@ if os.path.exists(BUILD_DIR):
 # make new docs
 os.makedirs(BUILD_DIR)
 
-# Open the sample descriptions file for writing
-desc_file_name = 'all_descs.rst'
-desc_file = open("%s/%s" % (BUILD_DIR, desc_file_name), 'w+')
-
 result = False
 for subdir in DIRS_TO_BUILD:
     result = build_readmes(subdir, BUILD_DIR)
     if result is False:
         break
-
-    # Write the title of this section (named after the path)
-    desc_file.write('%s\n%s\n\n' % (subdir, '~' * len(subdir)))
-
-    # insert the directory-level descriptions
-    dir_desc_file = open("%s/%s_descs.rst" % (BUILD_DIR, subdir), 'r+')
-    desc_file.write(dir_desc_file.read())
-    dir_desc_file.close()
-
-desc_file.close()
 
 if result is True:
     # generate the master README

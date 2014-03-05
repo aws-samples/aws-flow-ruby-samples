@@ -49,14 +49,14 @@ workflow pattern. It waits for two activities to complete: a car
 reservation and airline reservation. When both activities complete, it
 sends a confirmation. All activities are performed asynchronously.
 
-Code + info: [Samples/Booking](Samples/Booking/)
+Code + info: <Samples/Booking>
 
 #### Cron
 
 The *Cron* sample runs an activity periodically based on a cron
 expression.
 
-Code + info: [Samples/Cron](Samples/Cron/)
+Code + info: <Samples/Cron>
 
 #### CronWithRetry
 
@@ -65,7 +65,7 @@ The *CronWithRetry* sample demonstrates how to run a scheduled task with
 complete, `continue_as_new` is used to re-run the
 workflow at the next scheduled time.
 
-Code + info: [Samples/CronWithRetry](Samples/CronWithRetry/)
+Code + info: <Samples/CronWithRetry>
 
 #### Deployment
 
@@ -75,7 +75,7 @@ used to describe the application stack. The workflow takes this
 description as input and simulates the deployment of the components
 specified in it.
 
-Code + info: [Samples/Deployment](Samples/Deployment/)
+Code + info: <Samples/Deployment>
 
 #### FileProcessing
 
@@ -85,7 +85,7 @@ The workflow downloads a file from an Amazon S3 bucket, creates a
 S3. The task routing feature in Amazon SWF is illustrated in this
 sample.
 
-Code + info: [Samples/FileProcessing](Samples/FileProcessing/)
+Code + info: <Samples/FileProcessing>
 
 #### HelloWorld
 
@@ -94,7 +94,7 @@ activity to print Hello World. It shows basic usage of the framework,
 including implementing activities and workflow coordination logic and
 building workers to run the workflow and activities.
 
-Code + info: [Samples/HelloWorld](Samples/HelloWorld/)
+Code + info: <Samples/HelloWorld>
 
 #### Periodic
 
@@ -103,7 +103,7 @@ long-running workflow. The ability to continue executions as new
 executions so that an execution can run for very extended periods of
 time is demonstrated.
 
-Code + info: [Samples/Periodic](Samples/Periodic/)
+Code + info: <Samples/Periodic>
 
 #### SplitMerge
 
@@ -114,7 +114,7 @@ merge](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-wo
 workflow pattern. It spawns a number of worker activities which are then
 merged using `wait_for_all`.
 
-Code + info: [Samples/SplitMerge](Samples/SplitMerge/)
+Code + info: <Samples/SplitMerge>
 
 ### Recipes
 
@@ -123,14 +123,14 @@ Code + info: [Samples/SplitMerge](Samples/SplitMerge/)
 The **Branch** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: [Recipes/Branch](Recipes/Branch/)
+Code + info: <Recipes/Branch>
 
 #### ChildWorkflow
 
 The **ChildWorkflow** code provides a recipe to *start a child workflow
 inside a workflow execution*.
 
-Code + info: [Recipes/ChildWorkflow](Recipes/ChildWorkflow/)
+Code + info: <Recipes/ChildWorkflow>
 
 #### Choice
 
@@ -138,14 +138,14 @@ The **Choice** recipes show how to use a choice to *execute one of
 several activities*, or to *execute multiple activities from a larger
 group*.
 
-Code + info: [Recipes/Choice](Recipes/Choice/)
+Code + info: <Recipes/Choice>
 
 #### ConditionalLoop
 
 The **ConditionalLoop** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: [Recipes/ConditionalLoop](Recipes/ConditionalLoop/)
+Code + info: <Recipes/ConditionalLoop>
 
 #### HandleError
 
@@ -153,21 +153,21 @@ The **HandleError** code provides recipes to *respond to exceptions in
 asynchronous activities depending on exception type* and to *handle
 exceptions in asynchronous activities and perform cleanup*.
 
-Code + info: [Recipes/HandleError](Recipes/HandleError/)
+Code + info: <Recipes/HandleError>
 
 #### HumanTask
 
 The **HumanTask** code provides a recipe to *Complete an Activity Task
 Manually*.
 
-Code + info: [Recipes/HumanTask](Recipes/HumanTask/)
+Code + info: <Recipes/HumanTask>
 
 #### PickFirstBranch
 
 The **PickFirstBranch** code provides a recipe to *execute multiple
 activities concurrently and pick the fastest*.
 
-Code + info: [Recipes/PickFirstBranch](Recipes/PickFirstBranch/)
+Code + info: <Recipes/PickFirstBranch>
 
 #### RetryActivity
 
@@ -179,14 +179,14 @@ The **RetryActivity** recipes show how to:
 -   retry activities *without jitter*, or with *custom jitter logic*
 -   retry activities with *custom retry policies*
 
-Code + info: [Recipes/RetryActivity](Recipes/RetryActivity/)
+Code + info: <Recipes/RetryActivity>
 
 #### WaitForSignal
 
 The **WaitForSignal** code provides a recipe to *wait for an external
 signal and take a different code path if the signal is received*.
 
-Code + info: [Recipes/WaitForSignal](Recipes/WaitForSignal/)
+Code + info: <Recipes/WaitForSignal>
 
 For More Information
 --------------------
