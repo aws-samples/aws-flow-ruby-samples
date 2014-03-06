@@ -1,11 +1,11 @@
 require 'aws/decider'
 
-$HELLOWORLD_DOMAIN = "HelloWorld"
 config_file = File.open('credentials.cfg') { |f| f.read }
 AWS.config(YAML.load(config_file))
 
 @swf = AWS::SimpleWorkflow.new
 
+$HELLOWORLD_DOMAIN = "HelloWorld"
 begin
   @domain = @swf.domains.create($HELLOWORLD_DOMAIN, "10")
 rescue AWS::SimpleWorkflow::Errors::DomainAlreadyExistsFault => e

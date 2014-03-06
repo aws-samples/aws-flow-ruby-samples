@@ -17,7 +17,8 @@ class HelloWorldActivity
   end
 end
 
-activity_worker = AWS::Flow::ActivityWorker.new($swf.client, $domain, $task_list, HelloWorldActivity)
+activity_worker = AWS::Flow::ActivityWorker.new(
+  $swf.client, $domain, $task_list, HelloWorldActivity)
 
 # Start the worker if this file is called directly from the command line.
 activity_worker.start if __FILE__ == $0
