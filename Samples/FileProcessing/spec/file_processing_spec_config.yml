@@ -1,5 +1,0 @@
-Activity.Worker.LocalFolder: /tmp/
-Workflow.Input.SourceFileName: test_file.txt
-Workflow.Input.SourceBucketName: paritom_file_processing_sample
-Workflow.Input.TargetFileName: file_processing_sample.zip
-Workflow.Input.TargetBucketName: paritom_file_processing_sample

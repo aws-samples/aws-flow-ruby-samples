@@ -40,5 +40,5 @@ application_stack:
       host: host1
       web_server: 
       - web_server2
-  frontend_component:
+  frontend:
     - load_balancer1

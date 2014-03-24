@@ -1,25 +1,17 @@
-require 'aws/decider'
-require_relative 'utils.rb'
-require_relative 'cron_workflow.rb'
-
-include AWS::Flow
-
-# This code will terminate this program once all the workers and
-#   activities have been terminated
-if @domain.workflow_executions.with_status(:open).count.count > 0
-  @domain.workflow_executions.with_status(:open).each(&:terminate)
-end
+require_relative '../cron_utils'
+require_relative 'cron_activity'
+require_relative 'cron_workflow'
 
 # These are the initial parameters for the Simple Workflow
-#
+
 # @param job [Hash] information about the job that needs to be run. It
-#   contains a cron string, the function to call (in activity.rb), and the function
-#   call's arguments. The jobs should be short lived to avoid creating a drift in the
-#   scheduling of activities since the workflow will wait for the job to
-#   finish before it continues as new.
+#   contains a cron string, the function to call (in activity.rb), and the 
+#   function call's arguments. The jobs should be short lived to avoid creating 
+#   a drift in the  scheduling of activities since the workflow will wait for 
+#   the job to finish before it continues as new.
 # @param base_time [Time] time to start the cron workflow
 # @param interval_length [Integer] how often to reset history (seconds)
-job = { :cron => "* * * * *",  :func => :add, :args => [3,4]}
+job = { cron: "* * * * *",  func: :add, args: [3,4]}
 
 base_time = Time.now
 # The internal length should be longer than the periodicity of the cron job.
@@ -29,9 +21,6 @@ base_time = Time.now
 # (120 seconds = 2 minutes)
 interval_length = 127
 
-# Create a workflow client and start the workflow
-my_workflow_client =
-  workflow_client(@swf.client, @domain) { { :from_class => "CronWorkflow" } }
-
-puts "Starting an execution..."
-workflow_execution = my_workflow_client.run(job, base_time, interval_length)
+# Get the workflow client from CronUtils and start a workflow execution with
+# the required options
+CronUtils.new.workflow_client.run(job, base_time, interval_length)

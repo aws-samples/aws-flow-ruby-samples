@@ -1,78 +1,114 @@
-require_relative 'utils.rb'
-require_relative "./periodic_activity.rb"
-require_relative "./error_reporting_activity.rb"
-require_relative "./periodic_workflow_options.rb"
+require_relative '../periodic_utils'
+require_relative "periodic_activity"
+require_relative "error_reporting_activity"
 
+# PeriodicWorkflow class defines the workflows for the Periodic sample
 class PeriodicWorkflow
   extend AWS::Flow::Workflows
 
-  workflow :start_periodic_workflow do 
+  # Use the workflow method to define workflow entry point.
+  workflow :periodic do 
     {
-      :version => "1.0",
-      :task_list => $workflow_task_list,
-      :execution_start_to_close_timeout => 120 
+      version: PeriodicUtils::WF_VERSION,
+      task_list: PeriodicUtils::WF_TASKLIST,
+      execution_start_to_close_timeout: 120 
     }
   end
 
-  activity_client(:activity) { {:from_class => "PeriodicActivity"} }
-  activity_client(:error_report) { {:from_class => "ErrorReportingActivity"} }
+  # Create activity clients using the activity_client method to schedule
+  # activities
+  activity_client(:client) { { from_class: "PeriodicActivity" } }
+  activity_client(:error_report) { { from_class: "ErrorReportingActivity" } }
 
-  def start_periodic_workflow(running_options, prefix_name, activity_name, *activity_args)
-    @periodic_workflow_options = running_options
-    @periodic_workflow_clock = decision_context.workflow_clock
-    start_time = @periodic_workflow_clock.replay_current_time_millis
+  # This is the entry point for the workflow
+  def periodic(options)
 
+    puts "Workflow has started" unless is_replaying?
+    # Get the start time from the workflow_clock. get_current_time is a method 
+    # definied in this workflow that gets a workflow_clock object from the
+    # decision_context
+    start_time = get_current_time
+
+    # error_handler is a flow construct that should be used for error handling
+    # when scheduling asynchronous activities and workflows. It is modeled after
+    # the begin / rescue / ensure pattern.
     error_handler do |t|
       t.begin do
-        call_activity_periodically(
-          start_time, prefix_name, activity_name, *activity_args)
+        puts "Running the activity periodically" unless is_replaying?
+        run_periodically(options, start_time)
       end
 
+      # This shows how we can use the error_handler for reporting failures and
+      # doing cleanup. When we catch an exception from an asynchronous
+      # activity/workflow, we can call report_failure activity using the 
+      # error_report activity client that we created above
       t.rescue AWS::Flow::ActivityTaskFailedException do |e|
+        # Call the report_failure activity using the error_report activity
+        # client
+        unless is_replaying?
+          puts "Failure encountered. Calling error reporting activity"
+        end
         error_report.report_failure(e)
       end
 
       t.ensure do
-        seconds_left = @periodic_workflow_options.complete_after_seconds - (@periodic_workflow_clock.replay_current_time_millis - start_time)
+        time_left = options[:completion_secs] - (get_current_time - start_time)
 
-        if (seconds_left > 0)
-          next_running_options = PeriodicWorkflowOptions.new({
-            :execution_period_seconds => running_options.execution_period_seconds,
-            :wait_for_activity_completion => running_options.wait_for_activity_completion,
-            :continue_as_new_after_seconds => running_options.continue_as_new_after_seconds,
-            :complete_after_seconds => seconds_left,
-          })
+        if (time_left > 0)
+          options[:completion_secs] = time_left
 
-          continue_as_new(next_running_options, prefix_name, activity_name,*activity_args)
+          # Use the continue_as_new flow method to continue the workflow as a
+          # new workflow. This is very useful in long running workflows with
+          # large histories. SimpleWorkflow has a limit of 25K events per
+          # workflow.
+          puts "Workflow is continuing as new" unless is_replaying?
+          continue_as_new(options)
         end
       end
     end
   end
 
-  def call_activity_periodically(start_time, prefix_name, activity_name, *activity_args)
-    current_time = @periodic_workflow_clock.replay_current_time_millis
+  def run_periodically(options, start_time)
+    current_time = get_current_time
     duration = current_time - start_time
-    if(duration < @periodic_workflow_options.continue_as_new_after_seconds)
-
-      activity_future = activity.send_async("#{activity_name}", *activity_args ) do {
-        :activity_name => "#{prefix_name}" }
+    if duration < options[:continue_as_new_secs]
+      # Use send_async to schedule an asynchronous activity.
+      activity_future = client.send_async(options[:activity_name]) do
+        { activity_name: options[:activity_prefix] }
       end
 
-      timer_future = create_timer_async(@periodic_workflow_options.execution_period_seconds)
+      # Use the create_timer_async method to create an asynchronous timer
+      timer_future = create_timer_async(options[:execution_period_secs])
 
-      if @periodic_workflow_options.wait_for_activity_completion
+      if options[:wait_for_completion]
+        # If the wait_for_completion option is set to true, then we wait on both
+        # the timer_future and the activity_future to get set.
         wait_for_all(activity_future, timer_future)
       else
+        # If wait_for_completion options is set to false, then we only wait on
+        # the timer_future to get set
         wait_for_all(timer_future)
       end
 
-      # recursive call to start activity periodically
-      call_activity_periodically(start_time, prefix_name, activity_name, *activity_args)
+      # Recursively call run_periodically to schedule the activity again
+      run_periodically(options, start_time)
     end
   end
+
+  def get_current_time
+    # decision_context is a method available to all Workflow classes that extend
+    # AWS::Flow::Workflows. It can be used to get the workflow_clock and the
+    # current time of the workflow
+    decision_context.workflow_clock.replay_current_time_millis
+  end
+
+  # Helper method to check if Flow is replaying the workflow. This is used to
+  # avoid duplicate log messages
+  def is_replaying?
+    decision_context.workflow_clock.replaying
+  end
+
 end
 
-workflow_worker = AWS::Flow::WorkflowWorker.new(
-  $swf.client, $domain, $workflow_task_list, PeriodicWorkflow)
-
-workflow_worker.start if __FILE__ == $0
+# Start a WorkflowWorker to work on the PeriodicWorkflow tasks
+PeriodicUtils.new.workflow_worker.start if $0 == __FILE__

@@ -1,12 +1,11 @@
-require 'aws/decider'
-
-require_relative 'utils'
-require_relative 'file_processing_config'
+require_relative '../file_processing_utils'
 require_relative 'file_processing_workflow'
 
-include AWS::Flow
-
-config = FileProcessingConfig.new(File.join(File.dirname(__FILE__), "file_processing_config.yml"))
-
-my_workflow_client = workflow_client( $swf.client, $domain) { {:from_class => "FileProcessingWorkflow"} }
-workflow_execution = my_workflow_client.start_execution(config.source_bucket_name, config.source_filename, config.target_bucket_name, config.target_filename)
+# Get a workflow client for FileProcessingWorkflow and start a workflow 
+# execution with the required options
+FileProcessingUtils.new.workflow_client.start_execution(
+  source_bucket: FileProcessingUtils::SOURCE_BUCKET,
+  source_filename: FileProcessingUtils::SOURCE_FILENAME,
+  target_bucket: FileProcessingUtils::TARGET_BUCKET,
+  target_filename: FileProcessingUtils::TARGET_FILENAME
+)

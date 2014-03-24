@@ -1,13 +1,8 @@
-require 'aws/decider'
-require_relative 'utils.rb'
-require_relative 'deployment_workflow.rb'
+require_relative '../deployment_utils'
+require_relative 'deployment_workflow'
+require_relative 'deployment_activity'
 
-include AWS::Flow
-
-deployment_workflow_client = workflow_client($swf.client, $domain) { {:from_class => "DeploymentWorkflow"} }
-
-puts "starting an execution..."
-configuration_file = "application_stack.yml"
-workflow_execution = deployment_workflow_client.start_execution(configuration_file)
-
-
+file = File.join(File.dirname(__FILE__), "application_stack.yml")
+# Get the workflow client from BookingUtils and start a workflow execution with
+# the required options
+DeploymentUtils.new.workflow_client.start_execution(file)
