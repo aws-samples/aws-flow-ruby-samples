@@ -45,8 +45,9 @@ Run the Sample
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
-::
-:   cd \~/Downloads/aws-flow-ruby-samples/Samples/booking/lib
+    ~~~~
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/booking/lib
+    ~~~~
 
 2.  In each command-line (terminal) window, execute the following
     commands, substituting your AWS Access keys for the example values.
@@ -69,12 +70,13 @@ Run the Sample
 
 3.  Execute the following commands, one in each of the terminal windows:
 
-::
-:   ruby booking\_activity.rb
+    ~~~~
+    ruby booking_activity.rb
 
-    ruby booking\_workflow.rb
+    ruby booking_workflow.rb
 
-    ruby booking\_workflow\_starter.rb
+    ruby booking_workflow_starter.rb
+    ~~~~
 
 For More Information
 --------------------

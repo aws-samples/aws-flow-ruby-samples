@@ -30,7 +30,7 @@ expression.
 
 Code + info: [cron](cron/)
 
-cron\_with\_retry
+cron_with_retry
 -----------------
 
 The *CronWithRetry* sample demonstrates how to run a scheduled task with
@@ -38,7 +38,7 @@ The *CronWithRetry* sample demonstrates how to run a scheduled task with
 complete, `continue_as_new` is used to re-run the
 workflow at the next scheduled time.
 
-Code + info: [cron\_with\_retry](cron_with_retry/)
+Code + info: [cron_with_retry](cron_with_retry/)
 
 deployment
 ----------
@@ -51,7 +51,7 @@ specified in it.
 
 Code + info: [deployment](deployment/)
 
-file\_processing
+file_processing
 ----------------
 
 The *FileProcessing* sample demonstrates a media processing use case.
@@ -60,9 +60,9 @@ The workflow downloads a file from an Amazon S3 bucket, creates a
 S3. The task routing feature in Amazon SWF is illustrated in this
 sample.
 
-Code + info: [file\_processing](file_processing/)
+Code + info: [file_processing](file_processing/)
 
-hello\_world
+hello_world
 ------------
 
 The *HelloWorld* sample uses a very simple workflow that calls an
@@ -70,7 +70,7 @@ activity to print Hello World. It shows basic usage of the framework,
 including implementing activities and workflow coordination logic and
 building workers to run the workflow and activities.
 
-Code + info: [hello\_world](hello_world/)
+Code + info: [hello_world](hello_world/)
 
 periodic
 --------
@@ -82,7 +82,7 @@ time is demonstrated.
 
 Code + info: [periodic](periodic/)
 
-split\_merge
+split_merge
 ------------
 
 The *SplitMerge* sample demonstrates a [parallel
@@ -92,4 +92,4 @@ merge](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-wo
 workflow pattern. It spawns a number of worker activities which are then
 merged using `wait_for_all`.
 
-Code + info: [split\_merge](split_merge/)
+Code + info: [split_merge](split_merge/)

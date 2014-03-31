@@ -44,8 +44,9 @@ Run the Sample
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
-::
-:   cd \~/Downloads/aws-flow-ruby-samples/Samples/hello\_world/lib
+    ~~~~
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/hello_world/lib
+    ~~~~
 
 2.  In each command-line (terminal) window, execute the following
     commands, substituting your AWS Access keys for the example values.
@@ -68,12 +69,13 @@ Run the Sample
 
 3.  Execute the following commands, one in each of the terminal windows:
 
-::
-:   ruby hello\_world\_activity.rb
+    ~~~~
+    ruby hello_world_activity.rb
 
-    ruby hello\_world\_workflow.rb
+    ruby hello_world_workflow.rb
 
-    ruby hello\_world\_workflow\_starter.rb
+    ruby hello_world_workflow_starter.rb
+    ~~~~
 
 For More Information
 --------------------

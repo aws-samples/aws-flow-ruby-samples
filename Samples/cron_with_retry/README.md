@@ -44,8 +44,9 @@ Run the Sample
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
-::
-:   cd \~/Downloads/aws-flow-ruby-samples/Samples/cron\_with\_retry/lib
+    ~~~~
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/cron_with_retry/lib
+    ~~~~
 
 2.  In each command-line (terminal) window, execute the following
     commands, substituting your AWS Access keys for the example values.
@@ -68,12 +69,13 @@ Run the Sample
 
 3.  Execute the following commands, one in each of the terminal windows:
 
-::
-:   ruby cron\_with\_retry\_activity.rb
+    ~~~~
+    ruby cron_with_retry_activity.rb
 
-    ruby cron\_with\_retry\_workflow.rb
+    ruby cron_with_retry_workflow.rb
 
-    ruby cron\_with\_retry\_workflow\_starter.rb
+    ruby cron_with_retry_workflow_starter.rb
+    ~~~~
 
 For More Information
 --------------------

@@ -62,8 +62,9 @@ Run the Sample
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
-::
-:   cd \~/Downloads/aws-flow-ruby-samples/Samples/split\_merge/lib
+    ~~~~
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/split_merge/lib
+    ~~~~
 
 2.  In each command-line (terminal) window, execute the following
     commands, substituting your AWS Access keys for the example values.
@@ -86,12 +87,13 @@ Run the Sample
 
 3.  Execute the following commands, one in each of the terminal windows:
 
-::
-:   ruby average\_calculator\_activity.rb
+    ~~~~
+    ruby average_calculator_activity.rb
 
-    ruby average\_calculator\_workflow.rb
+    ruby average_calculator_workflow.rb
 
-    ruby average\_calculator\_workflow\_starter.rb
+    ruby average_calculator_workflow_starter.rb
+    ~~~~
 
 For More Information
 --------------------
