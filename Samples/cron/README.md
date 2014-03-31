@@ -4,27 +4,6 @@ AWS Flow Framework for Ruby: Cron Sample Application
 The *Cron* sample runs an activity periodically based on a cron
 expression.
 
-Prerequisites
--------------
-
-The *AWS Flow Framework for Ruby* is required, which can be obtained and
-installed using the information here:
-
--   [https://aws.amazon.com/swf/flow/](https://aws.amazon.com/swf/flow/)
-
-If you already have [Ruby](https://www.ruby-lang.org/) and
-[RubyGems](http://rubygems.org/) installed, you can install the
-framework by opening a terminal window and typing:
-
-~~~~
-gem install aws-flow
-~~~~
-
-For more information about setting up the AWS Flow Framework for Ruby,
-see [Installing the AWS Flow Framework for
-Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
-in the *AWS Flow Framework for Ruby Developer Guide*.
-
 Downloading the Sample Code
 ---------------------------
 
@@ -32,6 +11,31 @@ To view or download the code for all of the AWS Flow Framework for Ruby
 recipes and samples, go to:
 
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
+
+Prerequisites for Running the Samples
+-------------------------------------
+
+The *AWS Flow Framework for Ruby* is required, which can be obtained and
+installed using the information here:
+
+-   [https://aws.amazon.com/swf/flow/](https://aws.amazon.com/swf/flow/)
+
+If you already have [Ruby](https://www.ruby-lang.org/) and
+[RubyGems](http://rubygems.org/) installed, you can install the framework and
+all of the gems required by the samples by opening a terminal window, changing
+to the directory where you've cloned or downloaded the samples, and typing:
+
+~~~~
+bundle install
+~~~~
+
+This will install all of the requirements that are listed in the `Gemfile` in
+the repository's base directory.
+
+For more information about setting up the AWS Flow Framework for Ruby,
+see [Installing the AWS Flow Framework for
+Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
+in the *AWS Flow Framework for Ruby Developer Guide*.
 
 Run the Sample
 --------------

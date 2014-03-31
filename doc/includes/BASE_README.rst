@@ -9,9 +9,9 @@ This project contains sample code and recipes for the AWS Flow Framework for Rub
 * `Recipes`_
 * `For More Information`_
 
-.. include:: prerequisites.rst
-
 .. include:: download.rst
+
+.. include:: prerequisites.rst
 
 .. include:: ../build/all_descs.rst
 
