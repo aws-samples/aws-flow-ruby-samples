@@ -28,10 +28,17 @@ see [Installing the AWS Flow Framework for
 Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
 in the *AWS Flow Framework for Ruby Developer Guide*.
 
-To run the FileProcessing sample, you will also need the rubyzip Ruby
-library. To install it, run the following command:
+To run the FileProcessing sample, you will need the `rubyzip` Ruby library. To
+install it, run the following command:
 
-> gem install rubyzip
+~~~~
+gem install rubyzip
+~~~~
+
+You will also need to modify the file `file_processing_utils.rb`, changing the
+value of `TARGET_BUCKET` to an Amazon S3 bucket name that is owned by your
+account.
+
 
 Downloading the Sample Code
 ---------------------------
