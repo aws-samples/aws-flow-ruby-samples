@@ -16,7 +16,7 @@ class FileProcessingUtils
   SOURCE_FILENAME = "test_image.jpg"
   SOURCE_BUCKET = "swfconsole"
   TARGET_FILENAME = "file_processing_sample.zip"
-  TARGET_BUCKET = "paritom_file_processing_sample"
+  TARGET_BUCKET = "<enter_your_bucket_name_here>"
 
   def initialize
     @domain = setup_domain(DOMAIN)
