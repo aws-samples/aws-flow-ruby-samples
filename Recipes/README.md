@@ -10,66 +10,66 @@ Guide](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes.html).
 
 The following recipes are provided:
 
-Branch
+branch
 ------
 
 The **Branch** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: [Branch](branch/)
+Code + info: [branch](branch/)
 
-ChildWorkflow
--------------
+child\_workflow
+---------------
 
 The **ChildWorkflow** code provides a recipe to *start a child workflow
 inside a workflow execution*.
 
-Code + info: [ChildWorkflow](child_workflow/)
+Code + info: [child\_workflow](child_workflow/)
 
-Choice
+choice
 ------
 
 The **Choice** recipes show how to use a choice to *execute one of
 several activities*, or to *execute multiple activities from a larger
 group*.
 
-Code + info: [Choice](choice/)
+Code + info: [choice](choice/)
 
-ConditionalLoop
----------------
+conditional\_loop
+-----------------
 
 The **ConditionalLoop** code provides a recipe to *execute a
 dynamically-determined number of activities concurrently*.
 
-Code + info: [ConditionalLoop](conditional_loop/)
+Code + info: [conditional\_loop](conditional_loop/)
 
-HandleError
------------
+handle\_error
+-------------
 
 The **HandleError** code provides recipes to *respond to exceptions in
 asynchronous activities depending on exception type* and to *handle
 exceptions in asynchronous activities and perform cleanup*.
 
-Code + info: [HandleError](handle_error/)
+Code + info: [handle\_error](handle_error/)
 
-HumanTask
----------
+human\_task
+-----------
 
 The **HumanTask** code provides a recipe to *Complete an Activity Task
 Manually*.
 
-Code + info: [HumanTask](human_task/)
+Code + info: [human\_task](human_task/)
 
-PickFirstBranch
----------------
+pick\_first\_branch
+-------------------
 
 The **PickFirstBranch** code provides a recipe to *execute multiple
 activities concurrently and pick the fastest*.
 
-Code + info: [PickFirstBranch](pick_first_branch/)
+Code + info: [pick\_first\_branch](pick_first_branch/)
 
-RetryActivity
--------------
+retry\_activity
+---------------
 
 The **RetryActivity** recipes show how to:
 
@@ -79,12 +79,12 @@ The **RetryActivity** recipes show how to:
 -   retry activities *without jitter*, or with *custom jitter logic*
 -   retry activities with *custom retry policies*
 
-Code + info: [RetryActivity](retry_activity/)
+Code + info: [retry\_activity](retry_activity/)
 
-WaitForSignal
--------------
+wait\_for\_signal
+-----------------
 
 The **WaitForSignal** code provides a recipe to *wait for an external
 signal and take a different code path if the signal is received*.
 
-Code + info: [WaitForSignal](wait_for_signal/)
+Code + info: [wait\_for\_signal](wait_for_signal/)
