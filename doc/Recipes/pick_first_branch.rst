@@ -1,7 +1,7 @@
-AWS Flow Framework for Ruby: RetryActivity Recipe
-=================================================
+AWS Flow Framework for Ruby: PickFirstBranch Recipe
+===================================================
 
-.. include:: ../includes/Recipes_RetryActivity_desc.rst
+.. include:: ../includes/Recipes_pick_first_branch_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

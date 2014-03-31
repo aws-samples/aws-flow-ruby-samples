@@ -44,9 +44,8 @@ Run the Sample
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
-    ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/Periodic/lib
-    ~~~~
+::
+:   cd \~/Downloads/aws-flow-ruby-samples/Samples/periodic/lib
 
 2.  In each command-line (terminal) window, execute the following
     commands, substituting your AWS Access keys for the example values.
@@ -67,21 +66,16 @@ Run the Sample
     set AWS_REGION=your-aws-region
     ~~~~
 
-System Message: ERROR/3 (`Samples/Periodic.rst`, line 22)
+3.  Execute the following commands, one in each of the terminal windows:
 
-Error in "include" directive: no content permitted.
+::
+:   ruby error\_reporting\_activity.rb
 
-~~~~
-.. include:: ../includes/sample_run_step_3_desc.rst
+    ruby periodic\_activity.rb
 
-    ruby error_reporting_activity.rb
+    ruby periodic\_workflow.rb
 
-    ruby periodic_activity.rb
-
-    ruby periodic_workflow.rb
-
-    ruby periodic_workflow_starter.rb
-~~~~
+    ruby periodic\_workflow\_starter.rb
 
 For More Information
 --------------------
@@ -95,3 +89,4 @@ Amazon Flow Framework for Ruby, consult the following resources:
     Reference](https://docs.aws.amazon.com/amazonswf/latest/awsrbflowapi/)
 -   [AWS Flow Framework](http://aws.amazon.com/swf/flow/)
 -   [Amazon Simple Workflow Service](http://aws.amazon.com/swf/)
+

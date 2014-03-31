@@ -1,7 +1,7 @@
-AWS Flow Framework for Ruby: PickFirstBranch Recipe
-===================================================
+AWS Flow Framework for Ruby: WaitForSignal Recipe
+=================================================
 
-.. include:: ../includes/Recipes_PickFirstBranch_desc.rst
+.. include:: ../includes/Recipes_wait_for_signal_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

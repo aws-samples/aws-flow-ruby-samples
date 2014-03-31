@@ -1,7 +1,7 @@
 AWS Flow Framework for Ruby: Cron Sample Application
 ====================================================
 
-.. include:: ../includes/Samples_Cron_desc.rst
+.. include:: ../includes/Samples_cron_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 
@@ -14,12 +14,14 @@ Run the Sample
 
 .. include:: ../includes/sample_run_step_1_desc.rst
 
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/Cron/lib
+::
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/cron/lib
 
 .. include:: ../includes/credential_step.rst
 
 .. include:: ../includes/sample_run_step_3_desc.rst
 
+::
     ruby cron_activity.rb
 
     ruby cron_workflow.rb

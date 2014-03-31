@@ -1,7 +1,7 @@
-AWS Flow Framework for Ruby: WaitForSignal Recipe
+AWS Flow Framework for Ruby: ChildWorkflow Recipe
 =================================================
 
-.. include:: ../includes/Recipes_WaitForSignal_desc.rst
+.. include:: ../includes/Recipes_child_workflow_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

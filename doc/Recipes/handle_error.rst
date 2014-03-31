@@ -1,7 +1,7 @@
 AWS Flow Framework for Ruby: HandleError Recipe
 ===============================================
 
-.. include:: ../includes/Recipes_HandleError_desc.rst
+.. include:: ../includes/Recipes_handle_error_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

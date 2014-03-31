@@ -11,7 +11,7 @@ Reference](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowapi/).
 
 The following samples are provided:
 
-Booking
+booking
 -------
 
 The *Booking* sample demonstrates a
@@ -20,27 +20,27 @@ workflow pattern. It waits for two activities to complete: a car
 reservation and airline reservation. When both activities complete, it
 sends a confirmation. All activities are performed asynchronously.
 
-Code + info: [Booking](Booking/)
+Code + info: [booking](booking/)
 
-Cron
+cron
 ----
 
 The *Cron* sample runs an activity periodically based on a cron
 expression.
 
-Code + info: [Cron](Cron/)
+Code + info: [cron](cron/)
 
-CronWithRetry
--------------
+cron\_with\_retry
+-----------------
 
 The *CronWithRetry* sample demonstrates how to run a scheduled task with
 `exponential_retry` options. Once the workflow is
 complete, `continue_as_new` is used to re-run the
 workflow at the next scheduled time.
 
-Code + info: [CronWithRetry](CronWithRetry/)
+Code + info: [cron\_with\_retry](cron_with_retry/)
 
-Deployment
+deployment
 ----------
 
 The *Deployment* sample illustrates the deployment of a set of
@@ -49,10 +49,10 @@ used to describe the application stack. The workflow takes this
 description as input and simulates the deployment of the components
 specified in it.
 
-Code + info: [Deployment](Deployment/)
+Code + info: [deployment](deployment/)
 
-FileProcessing
---------------
+file\_processing
+----------------
 
 The *FileProcessing* sample demonstrates a media processing use case.
 The workflow downloads a file from an Amazon S3 bucket, creates a
@@ -60,19 +60,19 @@ The workflow downloads a file from an Amazon S3 bucket, creates a
 S3. The task routing feature in Amazon SWF is illustrated in this
 sample.
 
-Code + info: [FileProcessing](FileProcessing/)
+Code + info: [file\_processing](file_processing/)
 
-HelloWorld
-----------
+hello\_world
+------------
 
 The *HelloWorld* sample uses a very simple workflow that calls an
 activity to print Hello World. It shows basic usage of the framework,
 including implementing activities and workflow coordination logic and
 building workers to run the workflow and activities.
 
-Code + info: [HelloWorld](HelloWorld/)
+Code + info: [hello\_world](hello_world/)
 
-Periodic
+periodic
 --------
 
 The *Periodic* sample periodically executes an activity in a
@@ -80,10 +80,10 @@ long-running workflow. The ability to continue executions as new
 executions so that an execution can run for very extended periods of
 time is demonstrated.
 
-Code + info: [Periodic](Periodic/)
+Code + info: [periodic](periodic/)
 
-SplitMerge
-----------
+split\_merge
+------------
 
 The *SplitMerge* sample demonstrates a [parallel
 split](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-workflow-patterns.html#programming-workflow-patterns-synchronization)
@@ -92,4 +92,4 @@ merge](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-wo
 workflow pattern. It spawns a number of worker activities which are then
 merged using `wait_for_all`.
 
-Code + info: [SplitMerge](SplitMerge/)
+Code + info: [split\_merge](split_merge/)

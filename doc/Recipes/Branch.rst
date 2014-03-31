@@ -1,7 +1,7 @@
 AWS Flow Framework for Ruby: Branch Recipe
 ==========================================
 
-.. include:: ../includes/Recipes_Branch_desc.rst
+.. include:: ../includes/Recipes_branch_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

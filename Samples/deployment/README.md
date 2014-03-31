@@ -41,15 +41,12 @@ Run the Sample
 
 **To run the Deployment sample:**
 
-System Message: ERROR/3 (`Samples/Deployment.rst`, line 15)
+1.  Open *three* separate terminal windows and, in each one, change to
+    the `lib` directory in the location where you
+    cloned or unarchived the sample code. For example:
 
-Error in "include" directive: no content permitted.
-
-~~~~
-.. include:: ../includes/sample_run_step_1_desc.rst
-
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/Deployment/lib
-~~~~
+::
+:   cd \~/Downloads/aws-flow-ruby-samples/Samples/deployment/lib
 
 2.  In each command-line (terminal) window, execute the following
     commands, substituting your AWS Access keys for the example values.
@@ -70,19 +67,14 @@ Error in "include" directive: no content permitted.
     set AWS_REGION=your-aws-region
     ~~~~
 
-System Message: ERROR/3 (`Samples/Deployment.rst`, line 21)
+3.  Execute the following commands, one in each of the terminal windows:
 
-Error in "include" directive: no content permitted.
+::
+:   ruby deployment\_activity.rb
 
-~~~~
-.. include:: ../includes/sample_run_step_3_desc.rst
+    ruby deployment\_workflow.rb
 
-    ruby deployment_activity.rb
-
-    ruby deployment_workflow.rb
-
-    ruby deployment_workflow_starter.rb
-~~~~
+    ruby deployment\_workflow\_starter.rb
 
 For More Information
 --------------------
@@ -96,3 +88,4 @@ Amazon Flow Framework for Ruby, consult the following resources:
     Reference](https://docs.aws.amazon.com/amazonswf/latest/awsrbflowapi/)
 -   [AWS Flow Framework](http://aws.amazon.com/swf/flow/)
 -   [Amazon Simple Workflow Service](http://aws.amazon.com/swf/)
+

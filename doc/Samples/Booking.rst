@@ -1,7 +1,7 @@
 AWS Flow Framework for Ruby: Booking Sample Application
 =======================================================
 
-.. include:: ../includes/Samples_Booking_desc.rst
+.. include:: ../includes/Samples_booking_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 
@@ -14,12 +14,14 @@ Run the Sample
 
 .. include:: ../includes/sample_run_step_1_desc.rst
 
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/Booking/lib
+::
+    cd ~/Downloads/aws-flow-ruby-samples/Samples/booking/lib
 
 .. include:: ../includes/credential_step.rst
 
 .. include:: ../includes/sample_run_step_3_desc.rst
 
+::
     ruby booking_activity.rb
 
     ruby booking_workflow.rb

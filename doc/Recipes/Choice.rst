@@ -1,7 +1,7 @@
 AWS Flow Framework for Ruby: Choice Recipe
 ==========================================
 
-.. include:: ../includes/Recipes_Choice_desc.rst
+.. include:: ../includes/Recipes_choice_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

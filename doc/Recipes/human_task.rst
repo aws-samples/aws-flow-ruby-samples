@@ -1,7 +1,7 @@
-AWS Flow Framework for Ruby: ConditionalLoop Recipe
-===================================================
+AWS Flow Framework for Ruby: HumanTask Recipe
+=============================================
 
-.. include:: ../includes/Recipes_ConditionalLoop_desc.rst
+.. include:: ../includes/Recipes_human_task_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

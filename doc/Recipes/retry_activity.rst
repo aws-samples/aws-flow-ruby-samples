@@ -1,7 +1,7 @@
-AWS Flow Framework for Ruby: ChildWorkflow Recipe
+AWS Flow Framework for Ruby: RetryActivity Recipe
 =================================================
 
-.. include:: ../includes/Recipes_ChildWorkflow_desc.rst
+.. include:: ../includes/Recipes_retry_activity_desc.rst
 
 .. include:: ../includes/prerequisites.rst
 

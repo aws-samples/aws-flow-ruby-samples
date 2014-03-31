@@ -1,2 +1,2 @@
-3. Execute the following commands, one in each of the terminal windows::
+3. Execute the following commands, one in each of the terminal windows:
 
