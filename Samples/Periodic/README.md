@@ -40,36 +40,48 @@ Run the Sample
 
 **To run the Periodic sample:**
 
-1.  Open a terminal window and change to the `lib`
-    directory in the location where you cloned or unarchived the sample
-    code. For example:
+1.  Open *four* separate terminal windows and, in each one, change to
+    the `lib` directory in the location where you
+    cloned or unarchived the sample code. For example:
 
     ~~~~
     cd ~/Downloads/aws-flow-ruby-samples/Samples/Periodic/lib
     ~~~~
 
-2.  Create a file in the directory called `credentials.cfg`
- and enter the following text, replacing the strings
-    "insert ... access key here" with your AWS Access Key ID and your
-    Secret Access Key.:
+2.  In each command-line (terminal) window, execute the following
+    commands, substituting your AWS Access keys for the example values.
+
+    On Linux, OS X or Unix:
 
     ~~~~
-    ---
-    :access_key_id: "insert access key here"
-    :secret_access_key: "insert secret access key here"
+    export AWS_ACCESS_KEY_ID='your-access-key'
+    export AWS_SECRET_ACCESS_KEY='your-secret-key'
+    export AWS_REGION='your-aws-region'
     ~~~~
 
-3.  Execute the following commands on your command-line:
+    On Windows:
 
     ~~~~
-    ruby error_reporting_activity.rb &
-    ruby periodic_activity.rb &
-    ruby periodic_workflow.rb &
+    set AWS_ACCESS_KEY_ID=your-access-key
+    set AWS_SECRET_ACCESS_KEY=your-secret-key
+    set AWS_REGION=your-aws-region
+    ~~~~
+
+System Message: ERROR/3 (`Samples/Periodic.rst`, line 22)
+
+Error in "include" directive: no content permitted.
+
+~~~~
+.. include:: ../includes/sample_run_step_3_desc.rst
+
+    ruby error_reporting_activity.rb
+
+    ruby periodic_activity.rb
+
+    ruby periodic_workflow.rb
+
     ruby periodic_workflow_starter.rb
-    ~~~~
-
-    Alternately, you can execute the run\_periodic.sh shell script to
-    run all of these commands at once.
+~~~~
 
 For More Information
 --------------------

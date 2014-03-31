@@ -36,41 +36,8 @@ recipes and samples, go to:
 View the Recipe
 ---------------
 
-The **WaitForSignal** recipe code is fully documented in the *AWS Flow
-Framework for Ruby Developer Guide*:
-
--   [Wait for an External
-    Signal](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-waitforsignal.html)
-
-Run the Recipe Code
--------------------
-
-**To run the WaitForSignal Recipe:**
-
-1.  Open a terminal window and change to the `test`
-    directory in the location where you have cloned or unarchived the
-    sample code. For example:
-
-    ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Recipes/WaitForSignal/test
-    ~~~~
-
-2.  Create a file in the directory called `credentials.cfg`
- and enter the following text, replacing the strings
-    "insert ... access key here" with your AWS Access Key ID and your
-    Secret Access Key.:
-
-    ~~~~
-    ---
-    :access_key_id: "insert access key here"
-    :secret_access_key: "insert secret access key here"
-    ~~~~
-
-3.  Execute the following command on your command-line:
-
-    ~~~~
-    rspec wait_for_signal_integration_spec.rb
-    ~~~~
+To view the code and comments for the recipes in this directory, refer
+to the individual source files.
 
 For More Information
 --------------------

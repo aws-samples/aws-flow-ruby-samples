@@ -12,24 +12,22 @@ Run the Sample
 
 **To run the Periodic sample:**
 
-1. Open a terminal window and change to the ``lib`` directory in the location where you cloned or unarchived the sample
-   code. For example::
+1. Open *four* separate terminal windows and, in each one, change to the ``lib`` directory in the location where you
+   cloned or unarchived the sample code. For example::
 
     cd ~/Downloads/aws-flow-ruby-samples/Samples/Periodic/lib
 
-.. step 2 is common to all samples.
 .. include:: ../includes/credential_step.rst
 
-3. Execute the following commands on your command-line::
+.. include:: ../includes/sample_run_step_3_desc.rst
 
-    ruby error_reporting_activity.rb &
-    ruby periodic_activity.rb &
-    ruby periodic_workflow.rb &
+    ruby error_reporting_activity.rb
+
+    ruby periodic_activity.rb
+
+    ruby periodic_workflow.rb
+
     ruby periodic_workflow_starter.rb
-
-   Alternately, you can execute the `run_periodic.sh` shell script to run all of these commands at once.
-
-.. In the future, we'll include the "About the Sample Code" section right here...
 
 .. include:: ../includes/more_info.rst
 

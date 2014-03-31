@@ -10,28 +10,7 @@ AWS Flow Framework for Ruby: ConditionalLoop Recipe
 View the Recipe
 ---------------
 
-The **ConditionalLoop** recipe code is fully documented in the *AWS Flow Framework for Ruby Developer Guide*:
-
-- `Executing Activities Repeatedly`_
-
-Run the Recipe Code
--------------------
-
-**To run the ConditionalLoop Recipe:**
-
-1. Open a terminal window and change to the ``test`` directory in the location where you have cloned or unarchived the
-   sample code. For example::
-
-    cd ~/Downloads/aws-flow-ruby-samples/Recipes/ConditionalLoop/test
-
-.. step 2 is common to all samples.
-.. include:: ../includes/credential_step.rst
-
-3. Execute the following command on your command-line::
-
-    rspec conditional_loop_integration_spec.rb
+To view the code and comments for the recipes in this directory, refer to the individual source files.
 
 .. include:: ../includes/more_info.rst
-
-.. _`Executing Activities Repeatedly`: http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-loop.html
 

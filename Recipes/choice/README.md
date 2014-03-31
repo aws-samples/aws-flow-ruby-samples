@@ -37,44 +37,8 @@ recipes and samples, go to:
 View the Recipe
 ---------------
 
-The **Choice** recipe code is fully documented in the *AWS Flow
-Framework for Ruby Developer Guide*. There are two recipes provided:
-
--   [Execute One of Several
-    Activities](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-subset-one.html)
--   [Execute Multiple Activities from a Larger
-    Group](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-subset-multiple.html)
-
-Run the Recipe Code
--------------------
-
-**To run the Choice Recipes:**
-
-1.  Open a terminal window and change to the `test`
-    directory in the location where you have cloned or unarchived the
-    sample code. For example:
-
-    ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Recipes/Choice/test
-    ~~~~
-
-2.  Create a file in the directory called `credentials.cfg`
- and enter the following text, replacing the strings
-    "insert ... access key here" with your AWS Access Key ID and your
-    Secret Access Key.:
-
-    ~~~~
-    ---
-    :access_key_id: "insert access key here"
-    :secret_access_key: "insert secret access key here"
-    ~~~~
-
-3.  Execute the following commands on your command-line:
-
-    ~~~~
-    rspec exclusive_choice_integration_spec.rb
-    rspec multi_choice_integration_spec.rb
-    ~~~~
+To view the code and comments for the recipes in this directory, refer
+to the individual source files.
 
 For More Information
 --------------------

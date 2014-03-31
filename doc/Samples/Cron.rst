@@ -12,21 +12,19 @@ Run the Sample
 
 **To run the Cron sample:**
 
-1. Open a terminal window and change to the ``lib`` directory in the location where you cloned or unarchived the sample
-   code. For example::
+.. include:: ../includes/sample_run_step_1_desc.rst
 
     cd ~/Downloads/aws-flow-ruby-samples/Samples/Cron/lib
 
-.. step 2 is common to all samples.
 .. include:: ../includes/credential_step.rst
 
-3. Execute the following commands on your command-line::
+.. include:: ../includes/sample_run_step_3_desc.rst
 
-    ruby cron_activity.rb &
-    ruby cron_workflow.rb &
+    ruby cron_activity.rb
+
+    ruby cron_workflow.rb
+
     ruby cron_workflow_starter.rb
-
-   Alternately, you can execute the `run_cron.sh` script to run all of these commands at once.
 
 .. In the future, we'll include the "About the Sample Code" section right here...
 

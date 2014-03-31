@@ -41,62 +41,8 @@ recipes and samples, go to:
 View the Recipe
 ---------------
 
-The **RetryActivity** recipe code is fully documented in the *AWS Flow
-Framework for Ruby Developer Guide*. There are eight recipes provided:
-
--   [Apply a Retry Policy to All Invocations of an
-    Activity](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-activity-options.html)
--   [Specify a Retry Policy for an Activity
-    Client](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-client-options.html)
--   [Specify a Retry Policy for a Block of
-    Code](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-block-options.html)
--   [Specify a Retry Policy for a Specific Invocation of an
-    Activity](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-on-call-options.html)
--   [Retry Activities Without
-    Jitter](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-no-jitter.html)
--   [Retry Activities with Custom Jitter
-    Logic](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-custom-jitter.html)
--   [Retry a Synchronous Activity Call with a Custom Retry
-    Policy](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-custom-logic-sync.html)
--   [Retry an Asynchronous Activity Call with a Custom Retry
-    Policy](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-retry-custom-logic-async.html)
-
-Run the Recipe Code
--------------------
-
-**To run the RetryActivity Recipes:**
-
-1.  Open a terminal window and change to the `test`
-    directory in the location where you have cloned or unarchived the
-    sample code. For example:
-
-    ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Recipes/RetryActivity/test
-    ~~~~
-
-2.  Create a file in the directory called `credentials.cfg`
- and enter the following text, replacing the strings
-    "insert ... access key here" with your AWS Access Key ID and your
-    Secret Access Key.:
-
-    ~~~~
-    ---
-    :access_key_id: "insert access key here"
-    :secret_access_key: "insert secret access key here"
-    ~~~~
-
-3.  Execute the following commands on your command-line:
-
-    ~~~~
-    rspec activity_options_retry_integration_spec.rb
-    rspec client_options_retry_integration_spec.rb
-    rspec retry_block_options_retry_integration_spec.rb
-    rspec on_call_options_retry_integration_spec.rb
-    rspec no_jitter_retry_integration_spec.rb
-    rspec custom_jitter_retry_workflow.rb
-    rspec custom_logic_sync_retry_integration_spec.rb
-    rspec custom_logic_async_retry_integration_spec.rb
-    ~~~~
+To view the code and comments for the recipes in this directory, refer
+to the individual source files.
 
 For More Information
 --------------------

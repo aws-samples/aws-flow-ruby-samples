@@ -1,7 +1,15 @@
-2. Create a file in the directory called ``credentials.cfg`` and enter the following text, replacing the strings
-   "insert ... access key here" with your AWS Access Key ID and your Secret Access Key.::
+2. In each command-line (terminal) window, execute the following commands, substituting your AWS Access keys for the
+   example values.
 
-       ---
-       :access_key_id: "insert access key here"
-       :secret_access_key: "insert secret access key here"
+   On Linux, OS X or Unix::
+
+       export AWS_ACCESS_KEY_ID='your-access-key'
+       export AWS_SECRET_ACCESS_KEY='your-secret-key'
+       export AWS_REGION='your-aws-region'
+
+   On Windows::
+
+       set AWS_ACCESS_KEY_ID=your-access-key
+       set AWS_SECRET_ACCESS_KEY=your-secret-key
+       set AWS_REGION=your-aws-region
 

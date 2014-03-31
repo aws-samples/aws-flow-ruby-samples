@@ -41,35 +41,48 @@ Run the Sample
 
 **To run the Booking sample:**
 
-1.  Open a terminal window and change to the `lib`
-    directory in the location where you cloned or unarchived the sample
-    code. For example:
+System Message: ERROR/3 (`Samples/Booking.rst`, line 15)
 
-    ~~~~
+Error in "include" directive: no content permitted.
+
+~~~~
+.. include:: ../includes/sample_run_step_1_desc.rst
+
     cd ~/Downloads/aws-flow-ruby-samples/Samples/Booking/lib
-    ~~~~
+~~~~
 
-2.  Create a file in the directory called `credentials.cfg`
- and enter the following text, replacing the strings
-    "insert ... access key here" with your AWS Access Key ID and your
-    Secret Access Key.:
+2.  In each command-line (terminal) window, execute the following
+    commands, substituting your AWS Access keys for the example values.
 
-    ~~~~
-    ---
-    :access_key_id: "insert access key here"
-    :secret_access_key: "insert secret access key here"
-    ~~~~
-
-3.  Execute the following commands on your command-line:
+    On Linux, OS X or Unix:
 
     ~~~~
-    ruby booking_activity.rb &
-    ruby booking_workflow.rb &
+    export AWS_ACCESS_KEY_ID='your-access-key'
+    export AWS_SECRET_ACCESS_KEY='your-secret-key'
+    export AWS_REGION='your-aws-region'
+    ~~~~
+
+    On Windows:
+
+    ~~~~
+    set AWS_ACCESS_KEY_ID=your-access-key
+    set AWS_SECRET_ACCESS_KEY=your-secret-key
+    set AWS_REGION=your-aws-region
+    ~~~~
+
+System Message: ERROR/3 (`Samples/Booking.rst`, line 21)
+
+Error in "include" directive: no content permitted.
+
+~~~~
+.. include:: ../includes/sample_run_step_3_desc.rst
+
+    ruby booking_activity.rb
+
+    ruby booking_workflow.rb
+
     ruby booking_workflow_starter.rb
-    ~~~~
-
-    Alternately, you can execute the run\_booking.sh shell script to run
-    all of these commands at once.
+~~~~
 
 For More Information
 --------------------

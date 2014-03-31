@@ -36,41 +36,8 @@ recipes and samples, go to:
 View the Recipe
 ---------------
 
-The **HumanTask** recipe code is fully documented in the *AWS Flow
-Framework for Ruby Developer Guide*:
-
--   [Executing Activities
-    Repeatedly](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/recipes-loop.html)
-
-Run the Recipe Code
--------------------
-
-**To run the HumanTask Recipe:**
-
-1.  Open a terminal window and change to the `test`
-    directory in the location where you have cloned or unarchived the
-    sample code. For example:
-
-    ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Recipes/HumanTask/test
-    ~~~~
-
-2.  Create a file in the directory called `credentials.cfg`
- and enter the following text, replacing the strings
-    "insert ... access key here" with your AWS Access Key ID and your
-    Secret Access Key.:
-
-    ~~~~
-    ---
-    :access_key_id: "insert access key here"
-    :secret_access_key: "insert secret access key here"
-    ~~~~
-
-3.  Execute the following command on your command-line:
-
-    ~~~~
-    rspec human_task_integration_spec.rb
-    ~~~~
+To view the code and comments for the recipes in this directory, refer
+to the individual source files.
 
 For More Information
 --------------------
