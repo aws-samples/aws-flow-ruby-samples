@@ -35,13 +35,13 @@ class RetryActivities
 
   def unreliable_activity_with_retry_options
     @count += 1
-    $logger << "@count = #{@count} in unreliable activity with retry options\n"
+    puts "@count = #{@count} in unreliable activity with retry options\n"
     raise ArgumentError, "Intentional failure count=#{@count}" if @count < 3
   end
 
   def unreliable_activity_without_retry_options
     @count += 1
-    $logger << "@count = #{@count} in unreliable activity without retry options\n"
+    puts "@count = #{@count} in unreliable activity without retry options\n"
     raise ArgumentError, "Intentional failure count=#{@count}" if @count < 3
   end
 end
