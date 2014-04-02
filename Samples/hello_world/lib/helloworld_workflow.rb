@@ -15,7 +15,7 @@ class HelloWorldWorkflow
 
   # Create an activity client using the activity_client method to schedule
   # activities
-  activity_client(:client) { {:from_class => "HelloWorldActivity"} }
+  activity_client(:client) { { from_class: "HelloWorldActivity" } }
 
   # This is the entry point for the workflow
   def hello(name)

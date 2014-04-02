@@ -19,7 +19,7 @@ class DeploymentWorkflow
 
   # Create an activity client using the activity_client method to schedule
   # activities
-  activity_client(:client) { {from_class: "DeploymentActivity"} }
+  activity_client(:client) { { from_class: "DeploymentActivity" } }
 
   # This is the entry point for the workflow
   def deploy(configuration_file)

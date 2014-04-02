@@ -15,7 +15,7 @@ class SplitMergeWorkflow
 
   # Create an activity client using the activity_client method to schedule
   # activities
-  activity_client(:client) { {from_class: "SplitMergeActivity" } }
+  activity_client(:client) { { from_class: "SplitMergeActivity" } }
 
   # This is the entry point for the workflow
   def average(options)
