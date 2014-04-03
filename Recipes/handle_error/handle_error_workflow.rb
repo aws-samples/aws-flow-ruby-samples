@@ -21,33 +21,40 @@ class HandleErrorWorkflow
   activity_client(:client){ {from_class: "RecipeActivity"} }
 
   def handle_error_workflow
-
     # schedule the allocate_resource activity synchronously. Its output is
     # needed for use_resource.
+    ex = Future.new
     resource_id = client.allocate_resource
 
     # error_handler (modeled after begin/rescue/ensure) is used to handle errors
     # from asynchronous activities or workflows.
     error_handler do |t|
       t.begin do
-        # schedule the use_resource activity asynchronously. It could throw an
-        # exception if the resource is bad or unavailable.
+        # schedule the use_resource activity asynchronously.
         client.send_async(:use_resource, resource_id)
       end
-      t.rescue ActivityTaskFailedException do |e|
-        if e.cause.instance_of? ResourceNoResponseException
-          # bad resource: report it by running the report_resource activity.
-          client.report_resource(resource_id)
-        elsif e.cause.instance_of? ResourceNotAvailableException
-          # resource isn't available: refresh the resource catalog by running
-          # the refresh_catalog activity.
-          client.refresh_catalogue(resource_id)
-        else
-          # Not one of the handled types; throw the exception again to be
-          # handled higher in the execution chain.
-          throw e
-        end
+      t.rescue Exception do |e|
+        # Set the future for handle_exception
+        ex.set(e)
       end
+      t.ensure do
+        # call handle_exception if the future was set
+        handle_exception(ex.get, resource_id) if ex.set?
+      end
+    end
+  end
+
+  # handle an exception (or re-throw it)
+  def handle_exception(e, resource_id)
+    if e.cause.instance_of? ResourceNoResponseException
+      # no response? report this as a bad resource.
+      client.report_resource(resource_id)
+    elsif e.cause.instance_of? ResourceNotAvailableException
+      # not available? refresh the resource catalog
+      client.refresh_catalogue(resource_id)
+    else
+      # unhandled exception: re-throw it.
+      throw e
     end
   end
 end

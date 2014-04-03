@@ -17,8 +17,7 @@ class WaitForSignalWorkflow
   # Create an activity client used to schedule activities
   activity_client(:client) { { from_class: "RecipeActivity" } }
 
-  # Use the signal method to assign a method that will be called when a signal
-  # is received by this workflow
+  # assign a method that will be called if a signal is received by the workflow
   signal :change_order
 
   def initialize
@@ -29,22 +28,19 @@ class WaitForSignalWorkflow
   # the entry point for the workflow
   def place_order(original_amount)
 
-    # create an asynchronous timer to give the customer some grace period to
-    # change the order
+    # create an asynchronous timer to give the customer time to change the order
     timer = create_timer_async(@change_order_period)
 
-    # blocks until the timer is set. Here we will wait on the timer
-    # future and the future that is waiting for a signal to be received.
+    # blocks until the timer is set or a signal is received.
     wait_for_any(timer, @signal_received)
 
-    # Once the grace period is over (or a signal is received), run the final
-    # activity.
+    # run the final activity.
     process_order(original_amount)
   end
 
   def process_order(original_amount)
-    # The amount to be processed will be either the original amount or the
-    # signal amount depending upon whether a signal was received.
+    # process the original amount or the signal amount (if a signal was
+    # received)
     amount = original_amount
     amount = @signal_received.get if @signal_received.set?
     # schedule the process activity
@@ -53,8 +49,7 @@ class WaitForSignalWorkflow
 
   # called when a signal is received
   def change_order(amount)
-    # set the value of the @signal_received future with the amount passed to the
-    # method with the signal
+    # set the @signal_received future with the amount
     @signal_received.set(amount) unless @signal_received.set?
   end
 end
