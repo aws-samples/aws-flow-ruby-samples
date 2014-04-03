@@ -1,8 +1,7 @@
 require_relative 'search_activities'
 
-# PickFirstBranchWorkflow class defines a workflow for the pick_first_branch 
-# recipe. This recipe shows how we can start multiple branches in parallel and 
-# pick the first one that completes and cancel the remaining branches.
+# Starts multiple branches of execution in parallel and picks the first one that
+# completes, canceling the remaining branches.
 class PickFirstBranchWorkflow
   extend AWS::Flow::Workflows
 
@@ -14,42 +13,38 @@ class PickFirstBranchWorkflow
     }
   end
 
-  # Create an activity client using the activity_client method to schedule
-  # activities
+  # Create an activity client
   activity_client(:client) { { from_class: "SearchActivities" } }
 
+  # The main workflow, starts each cluster executing.
   def search(query)
-    # Search cluster 1
+    # this returns immediately with a future.
     branch1_result = search_on_cluster1(query)
-    # Search cluster 2
+    # so does this.
     branch2_result = search_on_cluster2(query)
 
-    # wait_for_any will block until atleast one of the futures in the enumerable
-    # collection that it is given is ready.
+    # wait for the first branch (either one) to return a result, then continue.
     wait_for_any(branch1_result, branch2_result)
 
-    # Here we will check which search was completed, that is which of the two
-    # futures was ready, and cancel the other one.
+    # cancels the slow branch and gets the result of the faster one.
     process_result(branch1_result, branch2_result)
   end
 
-  # This method is used to get the output of the search that was completed and
-  # cancel the other searches
+  # Cancel any unset branch, and return the result of the faster branch.
   def process_result(branch1_result, branch2_result)
     if branch1_result.set?
       output = branch1_result.get
-      # Cancel branch 2 if it is not complete yet
+      # Cancel branch 2 if not set
       @branch2.cancel(CancellationException.new) unless branch2_result.set?
     else
       output = branch2_result.get
-      # Cancel branch 1 if it is not complete yet
+      # Cancel branch 1 if not set
       @branch1.cancel(CancellationException.new) unless branch1_result.set?
     end
     return output
   end
 
-  # This method will run a search on cluster 1 by calling the search_cluster1
-  # activity
+  # Run the search_cluster1 activity asynchronously.
   def search_on_cluster1(query)
     cluster1_result = Future.new
     @branch1 = error_handler do |t|
@@ -63,8 +58,7 @@ class PickFirstBranchWorkflow
     return cluster1_result
   end
 
-  # This method will run a search on cluster 2 by calling the search_cluster2
-  # activity
+  # Run the search_cluster2 activity asynchronously.
   def search_on_cluster2(query)
     cluster2_result = Future.new
     @branch2 = error_handler do |t|

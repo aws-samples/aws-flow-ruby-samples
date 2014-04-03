@@ -1,8 +1,7 @@
 require_relative '../../../utils'
 require_relative 'retry_activities'
 
-# CustomLogicAsyncRetryWorkflow class defines a workflow for the retry_activity
-# recipes. This recipe shows how to set up custom retry for activities.
+# Shows how to set up custom retry logic for activities.
 class CustomLogicAsyncRetryWorkflow
   extend AWS::Flow::Workflows
 
@@ -14,8 +13,7 @@ class CustomLogicAsyncRetryWorkflow
     }
   end
 
-  # Create an activity client using the activity_client method to schedule
-  # activities. 
+  # Create an activity client used to schedule activities.
   activity_client(:client) { { from_class: "RetryActivities" } }
 
   # This is the entry point for the workflow
@@ -23,9 +21,9 @@ class CustomLogicAsyncRetryWorkflow
     handle_unreliable_activity
   end
 
-  # For asynchronous activities, use the error_handler construct provided by the
-  # flow framework for handling exceptions. When an exception is caught, retry
-  # the activity based on your custom retry logic.
+  # use the error_handler construct for handling errors in asynchronous
+  # activities. When an exception is caught, retry the activity based on custom
+  # retry logic.
   def handle_unreliable_activity
 
     # This future will be set when an exception is set with the details of the
@@ -46,14 +44,12 @@ class CustomLogicAsyncRetryWorkflow
       end
     end
 
-    # wait_for_all will block until all the futures in the enumerable 
-    # collection that it is given are ready.
+    # Blocks until the failure Future is ready.
     wait_for_all(failure)
 
-    # Once the future has been set, we can retry the activity if a failure was
+    # Once the future has been set, retry the activity if a failure was
     # encountered
     retry_on_failure(failure)
-
   end
 
   def retry_on_failure(failure)

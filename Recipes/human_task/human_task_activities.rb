@@ -4,6 +4,8 @@ require_relative '../../../utils'
 class HumanTaskActivities
   extend AWS::Flow::Activities
 
+  # Automated activity, this activity is complete when the automated_activity
+  # method returns.
   activity :automated_activity, :send_notification do
     {
       version: "1.0",
@@ -13,9 +15,8 @@ class HumanTaskActivities
     }
   end
 
-  # Notice the manual_completion option in this activity. Setting the
-  # manual_completion to true will let SimpleWorkflow know that this activity
-  # needs manual completion.
+  # Setting the manual_completion option to true alerts SWF that this activity
+  # requires manual completion. human_activity returns immediately.
   activity :human_activity do
     {
       version: "1.0",
@@ -26,6 +27,7 @@ class HumanTaskActivities
     }
   end
 
+  # This is just an automated activity.
   def automated_activity
     puts "activity: automated_activity"
   end
@@ -34,14 +36,14 @@ class HumanTaskActivities
   # prints it out so that the user can enter it when prompted.
   def human_activity
     puts "activity: human_activity"
-    # Use the activity_execution_context available to all Activity classes that
-    # extend AWS::Flow::Activities to fetch the task token for this activity
-    # task.
+    # Fetch the task token for this activity task using
+    # activity_execution_context.
     task_token = activity_execution_context.task_token
     puts "Task received, completion token:#{task_token}\n"
     return "default string"
   end
 
+  # Send notification of the input
   def send_notification(input)
     puts "activity: send_notification: #{input}"
   end

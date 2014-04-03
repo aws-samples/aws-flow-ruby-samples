@@ -1,9 +1,7 @@
 require_relative '../../../utils'
 require_relative 'retry_activities'
 
-# CustomJitterRetryWorkflow class defines a workflow for the retry_activity
-# recipes. This recipe shows how to set up a custom jitter retry policy for
-# activity executions.
+# Shows how to set up a custom jitter retry policy for activity executions.
 class CustomJitterRetryWorkflow
   extend AWS::Flow::Workflows
 
@@ -15,11 +13,9 @@ class CustomJitterRetryWorkflow
     }
   end
 
-  # Create an activity client using the activity_client method to schedule
-  # activities. Set the activity runtime options by passing in activity options
-  # as a has to the activity client. Here we set the should_jitter option to
-  # true and pass in a lambda that defines our custom retry policy. Note that
-  # jitter is switched on by default in the flow framework.
+  # Set the should_jitter option to true and pass in a lambda that defines our
+  # custom retry policy. Note that jitter is switched on by default in the flow
+  # framework.
   activity_client(:client) do
     {
       from_class: "RetryActivities",

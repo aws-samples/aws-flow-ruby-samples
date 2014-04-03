@@ -1,7 +1,6 @@
 require_relative '../../../utils'
 
-# RetryActivities class provides a set of activities for the retry_activities
-# recipe.
+# Provides a set of activities for the retry_activities recipe.
 class RetryActivities
   extend AWS::Flow::Activities
 
@@ -12,7 +11,7 @@ class RetryActivities
       default_task_schedule_to_start_timeout: 30,
       default_task_start_to_close_timeout: 30,
 
-      # This activity specifies retry options upon registration.
+      # This activity specifies retry options at registration.
       exponential_retry: {
         maximum_attempts: 5,
         exceptions_to_retry: [ArgumentError],
@@ -33,12 +32,14 @@ class RetryActivities
     @count = 0
   end
 
+  # this activity was registered with retry options.
   def unreliable_activity_with_retry_options
     @count += 1
     $logger << "@count = #{@count} in unreliable activity with retry options\n"
     raise ArgumentError, "Intentional failure count=#{@count}" if @count < 3
   end
 
+  # this activity did not have retry options set at registration.
   def unreliable_activity_without_retry_options
     @count += 1
     $logger << "@count = #{@count} in unreliable activity without retry options\n"

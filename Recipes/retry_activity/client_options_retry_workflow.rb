@@ -1,9 +1,6 @@
 require_relative 'retry_activities'
 
-# ClientOptionsRetryWorkflow class defines a workflow for the retry_activity
-# recipes. This recipe shows how to set up retry for activities using the
-# activity_client. Options set at the client level override the options set
-# during registration. 
+# Shows how to set retry options on activities using the activity_client.
 class ClientOptionsRetryWorkflow
   extend AWS::Flow::Workflows
 
@@ -15,9 +12,9 @@ class ClientOptionsRetryWorkflow
     }
   end
 
-  # Create an activity client using the activity_client method to schedule
-  # activities. Set the activity runtime options by passing in activity options
-  # as a has to the activity client.
+  # Create an activity client used to schedule activities. Set the activity
+  # runtime options by passing activity options to the activity client. Options
+  # set at the client level override the options set during registration.
   activity_client(:client) do
     {
       from_class: "RetryActivities",
@@ -28,7 +25,8 @@ class ClientOptionsRetryWorkflow
     }
   end
 
-  # This is the workflow entry point
+  # Run the unreliable activity that was registered without retry options. Retry
+  # options are set on the client.
   def process
     client.unreliable_activity_without_retry_options
   end

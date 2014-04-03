@@ -1,9 +1,8 @@
 require_relative '../../../utils'
 require_relative 'retry_activities'
 
-# NoJitterRetryWorkflow class defines a workflow for the retry_activity
-# recipes. This recipe shows how to turn jitter off in the retry policy. Turning
-# jitter off can be useful during testing.
+# Shows how to turn jitter off in the retry policy. Turning jitter off can be
+# useful during testing.
 class NoJitterRetryWorkflow
   extend AWS::Flow::Workflows
 
@@ -15,15 +14,11 @@ class NoJitterRetryWorkflow
     }
   end
 
-  # Create an activity client using the activity_client method to schedule
-  # activities. Set the activity runtime options by passing in activity options
-  # as a has to the activity client. Here we set the should_jitter option to
-  # false.
+  # Set the should_jitter option to false in the passed-in options.
   activity_client(:client) do
     {
       from_class: "RetryActivities",
       exponential_retry: {
-        # the default value for should_jitter is true
         should_jitter: false,
         maximum_attempts: 5,
         exceptions_to_retry: [StandardError],

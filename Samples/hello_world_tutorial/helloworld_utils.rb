@@ -15,15 +15,15 @@ class HelloWorldUtils
     end
   end
 
-  def activity_worker
-    AWS::Flow::ActivityWorker.new(@domain.client, @domain, ACTIVITY_TASKLIST, HelloWorldActivity)
+  def activity_worker(klass)
+    AWS::Flow::ActivityWorker.new(@domain.client, @domain, ACTIVITY_TASKLIST, klass)
   end
 
-  def workflow_worker
-    AWS::Flow::WorkflowWorker.new(@domain.client, @domain, WF_TASKLIST, HelloWorldWorkflow)
+  def workflow_worker(klass)
+    AWS::Flow::WorkflowWorker.new(@domain.client, @domain, WF_TASKLIST, klass)
   end
 
-  def workflow_client
-    AWS::Flow::workflow_client(@domain.client, @domain) { {from_class: "HelloWorldWorkflow"} }
+  def workflow_client(klass)
+    AWS::Flow::workflow_client(@domain.client, @domain) { { :from_class: klass.name } }
   end
 end

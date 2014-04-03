@@ -1,7 +1,6 @@
 require_relative 'retry_activities'
 
-# CustomLogicSyncRetryWorkflow class defines a workflow for the retry_activity
-# recipes. This recipe shows how to set up custom retry for activities.
+# Shows how to set up custom retry logic for activities
 class CustomLogicSyncRetryWorkflow
   extend AWS::Flow::Workflows
 
@@ -13,32 +12,33 @@ class CustomLogicSyncRetryWorkflow
     }
   end
 
-  # Create an activity client using the activity_client method to schedule
-  # activities. 
+  # Create an activity client used to schedule activities.
   activity_client(:client) { { from_class: "RetryActivities" } }
 
-  # This is the entry point for the workflow
+  # the entry point for the workflow
   def process
     handle_unreliable_activity
   end
 
-  # For synchronous activities, use standard ruby begin / rescue / ensure
-  # blocks for error handling. When an exception is caught, schedule the
-  # activity again based on your custom retry logic.
+  # Standard ruby begin / rescue / ensure blocks can be used for error handling
+  # on synchronous methods.
   def handle_unreliable_activity
     begin
       client.unreliable_activity_without_retry_options
     rescue Exception => e
+      # pass the exception to retry on failure.
       retry_on_failure(e)
     end
   end
 
   def retry_on_failure(ex)
+    # retry only if should_retry says so.
     handle_unreliable_activity if should_retry(ex)
   end
 
   def should_retry(ex)
-    # custom logic to decide to retry the activity or not according to 'ex'
+    # This could contain custom logic that determines whether to retry the
+    # activity or not according to 'ex'
     return true
   end
 end

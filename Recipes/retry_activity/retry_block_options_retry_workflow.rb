@@ -1,8 +1,6 @@
 require_relative 'retry_activities'
 
-# RetryBlockOptionsRetryWorkflow class defines a workflow for the retry_activity
-# recipes. This recipe shows how to set up retry for activities using the
-# with_retry method provided by the flow framework.
+# Shows how to set up retry for activities using with_retry
 class RetryBlockOptionsRetryWorkflow
   extend AWS::Flow::Workflows
 
@@ -14,12 +12,11 @@ class RetryBlockOptionsRetryWorkflow
     }
   end
 
-  # Create an activity client using the activity_client method to schedule
-  # activities. 
+  # Create an activity client used to schedule activities.
   activity_client(:client) { { from_class: "RetryActivities" } }
 
+  # pass options in a block to the activity method.
   def handle_unreliable_activity
-
     retry_options = {
       exponential_retry: {
         maximum_attempts: 5,
@@ -27,13 +24,11 @@ class RetryBlockOptionsRetryWorkflow
       }
     }
 
-    # Use the with_retry method provided by flow framework to schedule the
-    # activity with the required retry options. The code in the block will be 
-    # retried if an exception is thrown with options specified in 
+    # schedule the activity with the required retry options. The code in the
+    # block will be retried if an exception is thrown with options specified in
     # 'retry_options'
     with_retry(retry_options) do
       client.unreliable_activity_without_retry_options
     end
-  end    
-
+  end
 end

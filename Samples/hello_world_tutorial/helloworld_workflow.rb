@@ -12,11 +12,11 @@ class HelloWorldWorkflow
     }
   end
 
-  activity_client(:client) { {:from_class => "HelloWorldActivity"} }
+  activity_client(:client) { { :from_class: "HelloWorldActivity" } }
 
   def hello(name)
     client.say_hello(name)
   end
 end
 
-HelloWorldUtils.new.workflow_worker.start if $0 == __FILE__
+HelloWorldUtils.new.workflow_worker(HelloWorldWorkflow).start if $0 == __FILE__
