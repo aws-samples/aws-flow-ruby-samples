@@ -17,7 +17,7 @@ class HumanTaskWorkflow
 
   # Create an activity client using the activity_client method to schedule
   # activities
-  activity_client(:client){ {from_class: "HumanTaskActivities"} }
+  activity_client(:client) { { from_class: "HumanTaskActivities" } }
 
   # This is the entry point for the workflow
   def human_task_workflow

@@ -41,15 +41,15 @@ class WaitForSignalWorkflow
     wait_for_any(timer, @signal_received)
 
     # Once either the grace period is over or a signal is received, we will
-    # continue our execution
-    process_order(original_amount)
-  end
+    # continue our execution. Set the amount to be processed to either the
+    # original amount or the signal amount based on whether a signal was
+    # received or not.
+    amount = if @signal_received.set?
+               @signal_received.get
+             else
+               original_amount
+             end
 
-  def process_order(original_amount)
-    # Set the amount to be processed to either the original amount or the signal
-    # amount based on whether a signal was received or not.
-    amount = original_amount
-    amount = @signal_received.get if @signal_received.set?
     # Use the activity client to call the process activity
     client.process(amount)
   end

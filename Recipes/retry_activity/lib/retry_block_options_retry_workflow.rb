@@ -31,7 +31,7 @@ class RetryBlockOptionsRetryWorkflow
     # activity with the required retry options. The code in the block will be 
     # retried if an exception is thrown with options specified in 
     # 'retry_options'
-    with_retry(retry_options) do
+    AWS::Flow::with_retry(retry_options) do
       client.unreliable_activity_without_retry_options
     end
   end    
