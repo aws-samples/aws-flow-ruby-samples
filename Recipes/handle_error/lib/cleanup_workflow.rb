@@ -7,7 +7,7 @@ class CleanUpWorkflow
   extend AWS::Flow::Workflows
 
   # Use the workflow method to define workflow entry point.
-  workflow :cleaup_workflow do
+  workflow :cleanup_workflow do
     {
       version: "1.0",
       task_list: "cleanup_resource_workflow",
@@ -30,7 +30,7 @@ class CleanUpWorkflow
     # If your activities or workflows are asynchronous, (using send_async), you
     # must use error_handler, which is modeled after the begin / rescue / ensure
     # pattern, for error handling.
-    error_handler do |t|
+    AWS::Flow::error_handler do |t|
       t.begin do
         # Use the activity client to schedule the activity asynchronously.
         client.send_async(:use_resource, resource_id)

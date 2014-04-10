@@ -1,4 +1,6 @@
 require_relative '../../../utils'
+require_relative 'custom_exceptions'
+
 
 # HandleErrorActivities defines the activities for the handle_error recipes.
 class HandleErrorActivities

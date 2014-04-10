@@ -1,9 +1,5 @@
 require_relative 'handle_error_activities'
-
-# These are custom exceptions used in this recipe that demonstrate how to handle
-# different exceptions differently.
-class ResourceNoResponseException < Exception; end
-class ResourceNotAvailableException < Exception; end
+require_relative 'custom_exceptions'
 
 # HandleErrorWorkflow class defines a workflow for the handle_error 
 # recipe. This recipe shows how to handle errors encountered during workflow
@@ -22,7 +18,7 @@ class HandleErrorWorkflow
 
   # Create an activity client using the activity_client method to schedule
   # activities
-  activity_client(:client){ {from_class: "RecipeActivity"} }
+  activity_client(:client){ { from_class: "HandleErrorActivities" } }
 
   # This is the entry point for the workflow
   def handle_error_workflow
