@@ -33,14 +33,12 @@ class ParentWorkflow
     swf = AWS::SimpleWorkflow.new
     domain = swf.domains["Recipes"]
 
-    # Create a workflow client using the workflow_client method to work on
-    # the ChildWorkflow class. This method is available to all Workflow classes 
-    # that extend AWS::Flow::Workflows.
-    child_client = workflow_client(swf, domain) { 
+    # Create a workflow client using the workflow_client provided by flow
+    child_client = AWS::Flow::workflow_client(swf, domain) { 
       { from_class: "ChildWorkflow" } 
     }
 
     # Use the workflow client to start a child workflow execution.
-    clild_client.start_execution(input)
+    child_client.start_execution(input)
   end
 end

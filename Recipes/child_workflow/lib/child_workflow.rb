@@ -17,7 +17,7 @@ class ChildWorkflow
     }
   end
 
-  activity_client(:client){ {from_class: "RecipeActivity"} }
+  activity_client(:client) { { from_class: "RecipeActivity" } }
 
   # This is the entry point for the child workflow
   def child(input)
