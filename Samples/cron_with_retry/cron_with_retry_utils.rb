@@ -1,3 +1,4 @@
+require 'uuidtools'
 require_relative '../../utils'
 
 class CronWithRetryUtils
