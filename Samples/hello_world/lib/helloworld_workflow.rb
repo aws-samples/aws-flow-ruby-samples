@@ -8,8 +8,8 @@ class HelloWorldWorkflow
   workflow :hello do
     {
       version: HelloWorldUtils::WF_VERSION,
-      task_list: HelloWorldUtils::WF_TASKLIST,
-      execution_start_to_close_timeout: 3600,
+      default_task_list: HelloWorldUtils::WF_TASKLIST,
+      default_execution_start_to_close_timeout: 120,
     }
   end
 

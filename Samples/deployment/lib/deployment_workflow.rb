@@ -12,8 +12,8 @@ class DeploymentWorkflow
   workflow :deploy do
     {
       version: DeploymentUtils::WF_VERSION,
-      task_list: DeploymentUtils::WF_TASKLIST,
-      execution_start_to_close_timeout: 120,
+      default_task_list: DeploymentUtils::WF_TASKLIST,
+      default_execution_start_to_close_timeout: 120,
     }
   end
 

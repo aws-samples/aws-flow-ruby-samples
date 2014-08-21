@@ -81,7 +81,9 @@ Run the Sample
 3.  Execute the following commands, one in each of the terminal windows:
 
     ~~~~
-    ruby file_processing_activity.rb
+    ruby host_specific_worker.rb
+
+    ruby common_tasklist_worker.rb
 
     ruby file_processing_workflow.rb
 

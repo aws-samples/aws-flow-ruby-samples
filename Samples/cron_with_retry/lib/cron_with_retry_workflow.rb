@@ -11,8 +11,8 @@ class CronWithRetryWorkflow
   workflow :run do
     {
       version: CronWithRetryUtils::WF_VERSION,
-      task_list: CronWithRetryUtils::WF_TASKLIST,
-      execution_start_to_close_timeout: 3600,
+      default_task_list: CronWithRetryUtils::WF_TASKLIST,
+      default_execution_start_to_close_timeout: 600,
     }
   end
 
@@ -56,12 +56,7 @@ class CronWithRetryWorkflow
     # that extend AWS::Flow::Workflows so that this workflow will be called
     # again once complete (after the interval is over)
     puts "Workflow is continuing as new" unless is_replaying?
-    continue_as_new(job, base_time, interval_length) do |options|
-      options.execution_start_to_close_timeout = 3600
-      options.task_list = CronWithRetryUtils::WF_TASKLIST
-      options.tag_list = []
-      options.version = CronWithRetryUtils::WF_VERSION
-    end
+    continue_as_new(job, base_time, interval_length)
   end
 
   # This is a utility function that determines the schedule times for a cron job

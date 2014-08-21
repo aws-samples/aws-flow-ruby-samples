@@ -10,8 +10,8 @@ class PeriodicWorkflow
   workflow :periodic do
     {
       version: PeriodicUtils::WF_VERSION,
-      task_list: PeriodicUtils::WF_TASKLIST,
-      execution_start_to_close_timeout: 120
+      default_task_list: PeriodicUtils::WF_TASKLIST,
+      default_execution_start_to_close_timeout: 120
     }
   end
 

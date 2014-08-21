@@ -9,8 +9,8 @@ class BookingWorkflow
   workflow :make_booking do
     {
       version: BookingUtils::WF_VERSION,
-      task_list: BookingUtils::WF_TASKLIST,
-      execution_start_to_close_timeout: 120
+      default_task_list: BookingUtils::WF_TASKLIST,
+      default_execution_start_to_close_timeout: 120
     }
   end
 

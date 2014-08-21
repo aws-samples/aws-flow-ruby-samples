@@ -11,8 +11,8 @@ class FileProcessingWorkflow
   workflow :process_file do
     {
       version: FileProcessingUtils::WF_VERSION,
-      task_list: FileProcessingUtils::WF_TASKLIST,
-      execution_start_to_close_timeout: 120
+      default_task_list: FileProcessingUtils::WF_TASKLIST,
+      default_execution_start_to_close_timeout: 120
     }
   end
 
