@@ -70,11 +70,11 @@ Run the Sample
 3.  Execute the following commands, one in each of the terminal windows:
 
     ~~~~
-    ruby hello_world_activity.rb
+    ruby helloworld_activity.rb
 
-    ruby hello_world_workflow.rb
+    ruby helloworld_workflow.rb
 
-    ruby hello_world_workflow_starter.rb
+    ruby helloworld_workflow_starter.rb
     ~~~~
 
 For More Information
