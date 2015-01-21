@@ -1,0 +1,20 @@
+{
+  "domain":
+    {
+      "name": "Booking",
+      "retention_in_days": 10
+    },
+  "workflow_workers": [
+    {
+      "number_of_workers": 5,
+      "task_list": "booking_tasklist"
+    }
+  ],
+  "activity_workers": [
+    {
+      "number_of_workers": 5,
+      "number_of_forks_per_worker": 10,
+      "task_list": "booking_activity_tasklist"
+    }
+  ]
+}

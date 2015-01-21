@@ -1,5 +1,3 @@
-require_relative '../booking_utils'
-
 # BookingActivity class defines a set of activities for the Booking sample.
 class BookingActivity
   extend AWS::Flow::Activities
@@ -9,10 +7,7 @@ class BookingActivity
   # activities
   activity :reserve_car, :reserve_air, :send_confirmation do
     {
-      version: BookingUtils::ACTIVITY_VERSION,
-      default_task_list: BookingUtils::ACTIVITY_TASKLIST,
-      default_task_schedule_to_start_timeout: 30,
-      default_task_start_to_close_timeout: 30
+      version: "1.0",
     }
   end
 
@@ -31,6 +26,3 @@ class BookingActivity
     puts "Sending notification to customer: #{customer_id}\n"
   end
 end
-
-# Start an ActivityWorker to work on the BookingActivity tasks
-BookingUtils.new.activity_worker.start if $0 == __FILE__

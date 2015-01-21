@@ -1,0 +1,7 @@
+{
+  "activity_workers": [
+    {
+      "activity_classes": ["HelloWorld"]
+    }
+  ]
+}

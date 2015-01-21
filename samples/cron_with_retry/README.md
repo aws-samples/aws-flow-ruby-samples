@@ -1,31 +1,10 @@
-AWS Flow Framework for Ruby: Periodic Sample Application
-========================================================
+AWS Flow Framework for Ruby: CronWithRetry Sample Application
+=============================================================
 
-The *Periodic* sample periodically executes an activity in a
-long-running workflow. The ability to continue executions as new
-executions so that an execution can run for very extended periods of
-time is demonstrated.
-
-Prerequisites
--------------
-
-The *AWS Flow Framework for Ruby* is required, which can be obtained and
-installed using the information here:
-
--   [https://aws.amazon.com/swf/flow/](https://aws.amazon.com/swf/flow/)
-
-If you already have [Ruby](https://www.ruby-lang.org/) and
-[RubyGems](http://rubygems.org/) installed, you can install the
-framework by opening a terminal window and typing:
-
-~~~~
-gem install aws-flow
-~~~~
-
-For more information about setting up the AWS Flow Framework for Ruby,
-see [Installing the AWS Flow Framework for
-Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
-in the *AWS Flow Framework for Ruby Developer Guide*.
+The *CronWithRetry* sample demonstrates how to run a scheduled task with
+`exponential_retry` options. Once the workflow is
+complete, `continue_as_new` is used to re-run the
+workflow at the next scheduled time.
 
 Downloading the Sample Code
 ---------------------------
@@ -35,17 +14,42 @@ recipes and samples, go to:
 
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
+Prerequisites for Running the Samples
+-------------------------------------
+
+The *AWS Flow Framework for Ruby* is required, which can be obtained and
+installed using the information here:
+
+-   [https://aws.amazon.com/swf/flow/](https://aws.amazon.com/swf/flow/)
+
+If you already have [Ruby](https://www.ruby-lang.org/) and
+[RubyGems](http://rubygems.org/) installed, you can install the framework and
+all of the gems required by the samples by opening a terminal window, changing
+to the directory where you've cloned or downloaded the samples, and typing:
+
+~~~~
+bundle install
+~~~~
+
+This will install all of the requirements that are listed in the `Gemfile` in
+the repository's base directory.
+
+For more information about setting up the AWS Flow Framework for Ruby,
+see [Installing the AWS Flow Framework for
+Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
+in the *AWS Flow Framework for Ruby Developer Guide*.
+
 Run the Sample
 --------------
 
-**To run the Periodic sample:**
+**To run the CronWithRetry sample:**
 
-1.  Open *four* separate terminal windows and, in each one, change to
+1.  Open *three* separate terminal windows and, in each one, change to
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
     ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/periodic/lib
+    cd ~/Downloads/aws-flow-ruby-samples/samples/cron_with_retry/lib
     ~~~~
 
 2.  In each command-line (terminal) window, execute the following
@@ -70,13 +74,11 @@ Run the Sample
 3.  Execute the following commands, one in each of the terminal windows:
 
     ~~~~
-    ruby error_reporting_activity.rb
+    ruby cron_with_retry_activity.rb
 
-    ruby periodic_activity.rb
+    ruby cron_with_retry_workflow.rb
 
-    ruby periodic_workflow.rb
-
-    ruby periodic_workflow_starter.rb
+    ruby cron_with_retry_workflow_starter.rb
     ~~~~
 
 For More Information

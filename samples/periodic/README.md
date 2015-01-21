@@ -1,12 +1,10 @@
-AWS Flow Framework for Ruby: SplitMerge Sample Application
-==========================================================
+AWS Flow Framework for Ruby: Periodic Sample Application
+========================================================
 
-The *SplitMerge* sample demonstrates a [parallel
-split](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-workflow-patterns.html#programming-workflow-patterns-synchronization)
-followed by a [simple
-merge](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-workflow-patterns.html#programming-workflow-patterns-simple-merge)
-workflow pattern. It spawns a number of worker activities which are then
-merged using `wait_for_all`.
+The *Periodic* sample periodically executes an activity in a
+long-running workflow. The ability to continue executions as new
+executions so that an execution can run for very extended periods of
+time is demonstrated.
 
 Prerequisites
 -------------
@@ -37,33 +35,17 @@ recipes and samples, go to:
 
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
-Configure the Sample
---------------------
-
-This sample requires a little bit of configuration. Open the
-`split_merge_config.yml` file and edit the following
-line:
-
-~~~~
-SplitMerge.Input.BucketName: swf-private-beta-samples
-~~~~
-
-Replace the value `swf-private-beta-samples` with an
-S3 bucket name associated with your AWS account. For more information
-about how to create S3 buckets, see the [Amazon S3 Getting Started
-Guide](http://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)
-
 Run the Sample
 --------------
 
-**To run the SplitMerge sample:**
+**To run the Periodic sample:**
 
-1.  Open *three* separate terminal windows and, in each one, change to
+1.  Open *four* separate terminal windows and, in each one, change to
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
     ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/split_merge/lib
+    cd ~/Downloads/aws-flow-ruby-samples/samples/periodic/lib
     ~~~~
 
 2.  In each command-line (terminal) window, execute the following
@@ -88,11 +70,13 @@ Run the Sample
 3.  Execute the following commands, one in each of the terminal windows:
 
     ~~~~
-    ruby average_calculator_activity.rb
+    ruby error_reporting_activity.rb
 
-    ruby average_calculator_workflow.rb
+    ruby periodic_activity.rb
 
-    ruby average_calculator_workflow_starter.rb
+    ruby periodic_workflow.rb
+
+    ruby periodic_workflow_starter.rb
     ~~~~
 
 For More Information

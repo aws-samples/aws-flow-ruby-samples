@@ -1,10 +1,31 @@
-AWS Flow Framework for Ruby: CronWithRetry Sample Application
-=============================================================
+AWS Flow Framework for Ruby: HelloWorld Sample Application
+==========================================================
 
-The *CronWithRetry* sample demonstrates how to run a scheduled task with
-`exponential_retry` options. Once the workflow is
-complete, `continue_as_new` is used to re-run the
-workflow at the next scheduled time.
+The *HelloWorld* sample uses a very simple workflow that calls an
+activity to print Hello World. It shows basic usage of the framework,
+including implementing activities and workflow coordination logic and
+building workers to run the workflow and activities.
+
+Prerequisites
+-------------
+
+The *AWS Flow Framework for Ruby* is required, which can be obtained and
+installed using the information here:
+
+-   [https://aws.amazon.com/swf/flow/](https://aws.amazon.com/swf/flow/)
+
+If you already have [Ruby](https://www.ruby-lang.org/) and
+[RubyGems](http://rubygems.org/) installed, you can install the
+framework by opening a terminal window and typing:
+
+~~~~
+gem install aws-flow
+~~~~
+
+For more information about setting up the AWS Flow Framework for Ruby,
+see [Installing the AWS Flow Framework for
+Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
+in the *AWS Flow Framework for Ruby Developer Guide*.
 
 Downloading the Sample Code
 ---------------------------
@@ -14,42 +35,17 @@ recipes and samples, go to:
 
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
-Prerequisites for Running the Samples
--------------------------------------
-
-The *AWS Flow Framework for Ruby* is required, which can be obtained and
-installed using the information here:
-
--   [https://aws.amazon.com/swf/flow/](https://aws.amazon.com/swf/flow/)
-
-If you already have [Ruby](https://www.ruby-lang.org/) and
-[RubyGems](http://rubygems.org/) installed, you can install the framework and
-all of the gems required by the samples by opening a terminal window, changing
-to the directory where you've cloned or downloaded the samples, and typing:
-
-~~~~
-bundle install
-~~~~
-
-This will install all of the requirements that are listed in the `Gemfile` in
-the repository's base directory.
-
-For more information about setting up the AWS Flow Framework for Ruby,
-see [Installing the AWS Flow Framework for
-Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
-in the *AWS Flow Framework for Ruby Developer Guide*.
-
 Run the Sample
 --------------
 
-**To run the CronWithRetry sample:**
+**To run the HelloWorld sample:**
 
-1.  Open *three* separate terminal windows and, in each one, change to
-    the `lib` directory in the location where you
+1.  Open *two* separate terminal windows and, in each one, change to
+    the `hello_world` directory in the location where you
     cloned or unarchived the sample code. For example:
 
     ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/cron_with_retry/lib
+    cd ~/Downloads/aws-flow-ruby-samples/samples/hello_world
     ~~~~
 
 2.  In each command-line (terminal) window, execute the following
@@ -74,11 +70,9 @@ Run the Sample
 3.  Execute the following commands, one in each of the terminal windows:
 
     ~~~~
-    ruby cron_with_retry_activity.rb
+    aws-flow-ruby -f worker.json
 
-    ruby cron_with_retry_workflow.rb
-
-    ruby cron_with_retry_workflow_starter.rb
+    ruby starter.rb
     ~~~~
 
 For More Information

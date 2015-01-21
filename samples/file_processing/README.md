@@ -1,8 +1,12 @@
-AWS Flow Framework for Ruby: Cron Sample Application
-====================================================
+AWS Flow Framework for Ruby: FileProcessing Sample Application
+==============================================================
 
-The *Cron* sample runs an activity periodically based on a cron
-expression.
+The *FileProcessing* sample demonstrates a media processing use case.
+The workflow downloads a file from an Amazon S3 bucket, creates a
+`.zip` file and then uploads the file back to Amazon
+S3. The task routing feature in Amazon SWF is illustrated in this
+sample.
+
 
 Downloading the Sample Code
 ---------------------------
@@ -11,6 +15,7 @@ To view or download the code for all of the AWS Flow Framework for Ruby
 recipes and samples, go to:
 
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
+
 
 Prerequisites for Running the Samples
 -------------------------------------
@@ -37,17 +42,21 @@ see [Installing the AWS Flow Framework for
 Ruby](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/installing.html)
 in the *AWS Flow Framework for Ruby Developer Guide*.
 
+> **Note:** For the FileProcessing sample, you will also need to modify the file
+> `file_processing_utils.rb`, changing the value of `TARGET_BUCKET` to an Amazon
+> S3 bucket name that is owned by your account.
+
 Run the Sample
 --------------
 
-**To run the Cron sample:**
+**To run the FileProcessing sample:**
 
 1.  Open *three* separate terminal windows and, in each one, change to
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
     ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/cron/lib
+    cd ~/Downloads/aws-flow-ruby-samples/samples/file_processing/lib
     ~~~~
 
 2.  In each command-line (terminal) window, execute the following
@@ -72,11 +81,13 @@ Run the Sample
 3.  Execute the following commands, one in each of the terminal windows:
 
     ~~~~
-    ruby cron_activity.rb
+    ruby host_specific_worker.rb
 
-    ruby cron_workflow.rb
+    ruby common_tasklist_worker.rb
 
-    ruby cron_workflow_starter.rb
+    ruby file_processing_workflow.rb
+
+    ruby file_processing_workflow_starter.rb
     ~~~~
 
 For More Information

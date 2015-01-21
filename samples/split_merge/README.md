@@ -1,11 +1,12 @@
-AWS Flow Framework for Ruby: Deployment Sample Application
+AWS Flow Framework for Ruby: SplitMerge Sample Application
 ==========================================================
 
-The *Deployment* sample illustrates the deployment of a set of
-application components through a workflow. A YAML configuration file is
-used to describe the application stack. The workflow takes this
-description as input and simulates the deployment of the components
-specified in it.
+The *SplitMerge* sample demonstrates a [parallel
+split](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-workflow-patterns.html#programming-workflow-patterns-synchronization)
+followed by a [simple
+merge](http://docs.aws.amazon.com/amazonswf/latest/awsrbflowguide/programming-workflow-patterns.html#programming-workflow-patterns-simple-merge)
+workflow pattern. It spawns a number of worker activities which are then
+merged using `wait_for_all`.
 
 Prerequisites
 -------------
@@ -36,17 +37,33 @@ recipes and samples, go to:
 
 -   [https://github.com/awslabs/aws-flow-ruby-samples](https://github.com/awslabs/aws-flow-ruby-samples)
 
+Configure the Sample
+--------------------
+
+This sample requires a little bit of configuration. Open the
+`split_merge_config.yml` file and edit the following
+line:
+
+~~~~
+SplitMerge.Input.BucketName: swf-private-beta-samples
+~~~~
+
+Replace the value `swf-private-beta-samples` with an
+S3 bucket name associated with your AWS account. For more information
+about how to create S3 buckets, see the [Amazon S3 Getting Started
+Guide](http://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html)
+
 Run the Sample
 --------------
 
-**To run the Deployment sample:**
+**To run the SplitMerge sample:**
 
 1.  Open *three* separate terminal windows and, in each one, change to
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
     ~~~~
-    cd ~/Downloads/aws-flow-ruby-samples/Samples/deployment/lib
+    cd ~/Downloads/aws-flow-ruby-samples/samples/split_merge/lib
     ~~~~
 
 2.  In each command-line (terminal) window, execute the following
@@ -71,11 +88,11 @@ Run the Sample
 3.  Execute the following commands, one in each of the terminal windows:
 
     ~~~~
-    ruby deployment_activity.rb
+    ruby average_calculator_activity.rb
 
-    ruby deployment_workflow.rb
+    ruby average_calculator_workflow.rb
 
-    ruby deployment_workflow_starter.rb
+    ruby average_calculator_workflow_starter.rb
     ~~~~
 
 For More Information
