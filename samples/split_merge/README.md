@@ -44,10 +44,10 @@ Configure the sample
 --------------------
 
 This sample requires a little bit of configuration. Open the
-`split_merge_config.yml` file and edit the following line:
+`splitmerge_utils.rb` file and modify the following line:
 
-~~~~
-SplitMerge.Input.BucketName: swf-private-beta-samples
+~~~~ruby
+BUCKET = "swf-private-beta-samples"
 ~~~~
 
 Replace the value `swf-private-beta-samples` with an S3 bucket name associated
