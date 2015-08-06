@@ -51,7 +51,7 @@ Run the Sample
 
 **To run the FileProcessing sample:**
 
-1.  Open *three* separate terminal windows and, in each one, change to
+1.  Open *four* separate terminal windows and, in each one, change to
     the `lib` directory in the location where you
     cloned or unarchived the sample code. For example:
 
