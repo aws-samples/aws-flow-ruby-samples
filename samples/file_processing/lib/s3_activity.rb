@@ -76,7 +76,9 @@ class S3Activity
       # activity_execution_context is available to Activity classes that extend
       # AWS::Flow::Activities
       activity_execution_context.record_activity_heartbeat(progress.to_s)
+      Time.now
+    else
+      last_heartbeat_time
     end
-    Time.now
   end
 end
