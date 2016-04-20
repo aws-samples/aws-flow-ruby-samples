@@ -10,6 +10,13 @@ for Ruby.
 -   [Recipes](#recipes)
 -   [For More Information](#for-more-information)
 
+License
+-------
+
+All code in this repository, unless otherwise specified, is offered under the **Apache 2.0**
+license. For more information, see the `LICENSE.txt` file accompanying this repository or view the
+license terms online at http://www.apache.org/licenses/LICENSE-2.0.
+
 Downloading the Sample Code
 ---------------------------
 
