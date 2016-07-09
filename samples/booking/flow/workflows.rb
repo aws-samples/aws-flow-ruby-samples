@@ -33,6 +33,11 @@ class BookingWorkflow
   def make_booking options
 
     puts "Workflow has started\n" unless is_replaying?
+    
+    puts "Waiting 1 seconds\n" unless is_replaying?
+    create_timer(1)
+    puts "Done waiting 1 seconds.\n" unless is_replaying?
+    
     # This array will hold all futures that are created when asynchronous
     # activities are scheduled
     futures = []
@@ -57,7 +62,16 @@ class BookingWorkflow
     # will call the send_confirmation activity.
     client.send_confirmation(options[:customer_id])
 
+    method_with_create_timer_and_activity_calls(options[:customer_id])
+
     puts "Workflow has completed\n" unless is_replaying?
+  end
+  
+  def method_with_create_timer_and_activity_calls echo_me
+    puts "Inside of method with a create_timer call and an activity call." unless is_replaying?
+    puts "Waiting 3 seconds.\n" unless is_replaying?
+    create_timer(3)
+    client.echo(echo_me)
   end
 
   # Helper method to check if Flow is replaying the workflow. This is used to
