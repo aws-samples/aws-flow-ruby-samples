@@ -21,7 +21,7 @@ class SplitMergeWorkflow
   workflow :average do
     {
       version: SplitMergeUtils::WF_VERSION,
-      defalt_task_list: SplitMergeUtils::WF_TASKLIST,
+      default_task_list: SplitMergeUtils::WF_TASKLIST,
       default_execution_start_to_close_timeout: 360
     }
   end
