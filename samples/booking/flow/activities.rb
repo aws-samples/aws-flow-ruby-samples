@@ -23,6 +23,10 @@ class BookingActivity
       version: "1.0",
     }
   end
+  # This activity is used to echo
+  def echo(input)
+    puts "Echoing #{input}\n"
+  end
 
   # This activity can be used to reserve a car for a given request_id
   def reserve_car(request_id)
